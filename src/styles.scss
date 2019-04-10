@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'helvetica';
+}
+
+@font-face {
+  font-family: 'helvetica';
+  src: url('assets/fonts/Helvetica.ttf') format('truetype') ,url('assets/fonts/helvetica-compressed-5871d14b6903a.otf')  format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
