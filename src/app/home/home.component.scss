@@ -40,6 +40,31 @@
         appearance: none;
         background: url("../../assets/caret-down.png") 90% / 7% no-repeat #ffffff;
       }
+
+      &__line, &__grid {
+        width: 25px;
+        height: 25px;
+        margin: 0 5px;
+        display: inline-block;
+        line-height: 35px;
+        vertical-align: middle;
+        padding: 5px;
+        background-size: cover
+      }
+
+      &__line {
+        background-image: url("../../assets/line-view-icon.png");
+      }
+
+      &__grid {
+        background-image: url("../../assets/grid-view-icon.png");
+      }
+
+      .active {
+        border: 1px solid #2f2f2f;
+        border-radius: 5px;
+      }
+
     }
 
     &__container {

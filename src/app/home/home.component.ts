@@ -10,16 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   watches: Observable<Watch[]>;
+  viewIconState: string
   page = 1;
 
   constructor(private watchService: WatchService) {
     this.watches = this.watchService.getAllWatches();
   }
 
-  toggleViewIcon () {
-
+  onToggleViewIcon (state) {
+    this.viewIconState = state;
   }
 
   ngOnInit() {
+    this.viewIconState = 'grid';
   }
 }

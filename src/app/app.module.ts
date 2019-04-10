@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { GroupByPipe } from './shared/group-by.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { WatchLineComponent } from './home/watch-line/watch-line.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HeaderComponent,
     SidenavComponent,
     WatchTileComponent,
-    GroupByPipe
+    GroupByPipe,
+    WatchLineComponent
   ],
   imports: [
     BrowserModule,

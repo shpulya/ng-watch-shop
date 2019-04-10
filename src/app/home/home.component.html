@@ -6,6 +6,7 @@
   <div class="home__main">
     <div class="home__main__header">
       <span>Smartwatches</span>
+
       <div class="home__main__mode_view">
         <span>Sorting:</span>
         <select name="sorting">
@@ -13,19 +14,32 @@
           <option value="low_price">Lowest Price</option>
           <option value="high_price">Highest Price</option>
         </select>
-        <div class="home__main__mode_view__list" (click)="toogleViewIcon()"></div>
-        <div class="home__main__mode_view__card"></div>
+
+        <div class="home__main__mode_view__line {{(viewIconState === 'line')? 'active': ''}}" (click)="onToggleViewIcon('line')"></div>
+        <div class="home__main__mode_view__grid {{(viewIconState === 'grid')? 'active': ''}}" (click)="onToggleViewIcon('grid')"></div>
       </div>
 
     </div>
 
     <div class="home__main__container">
-      <app-watch-tile
-        [watch] = watch
-        *ngFor="let watch of watches | async | paginate: { itemsPerPage: 8, currentPage: page }"
-        class="home__main__container__tale"></app-watch-tile></div>
+      <ng-container *ngIf="viewIconState === 'grid'">
+        <app-watch-tile
+          [watch] = watch
+          *ngFor="let watch of watches | async | paginate: { itemsPerPage: 8, currentPage: page }"
+          class="home__main__container__tale">
+        </app-watch-tile>
+      </ng-container>
+      <hr>
 
-    <hr/>
+      <ng-container *ngIf="viewIconState === 'line'">
+        <app-watch-line
+          [watch] = watch
+          *ngFor="let watch of watches | async | paginate: { itemsPerPage: 20, currentPage: page }"
+          class="home__main__container__line">
+        </app-watch-line>
+      </ng-container>
+    </div>
+
     <pagination-controls class="home__pagination"
       (pageChange)="page = $event"
       autoHide="true"
