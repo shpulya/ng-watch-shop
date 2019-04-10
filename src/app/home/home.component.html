@@ -29,7 +29,6 @@
           class="home__main__container__tale">
         </app-watch-tile>
       </ng-container>
-      <hr>
 
       <ng-container *ngIf="viewIconState === 'line'">
         <app-watch-line
@@ -40,6 +39,7 @@
       </ng-container>
     </div>
 
+    <hr/>
     <pagination-controls class="home__pagination"
       (pageChange)="page = $event"
       autoHide="true"

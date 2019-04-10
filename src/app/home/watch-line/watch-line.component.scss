@@ -1,0 +1,104 @@
+.view_line {
+  display: grid;
+  grid-template-areas: "img name price"
+    "img param price"
+    "img describ cart";
+  grid-template-rows: 50px 1fr 60px;
+  grid-template-columns: 110px 1fr 100px;
+  grid-gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0;
+}
+
+.image {
+  width: 100px;
+  height: 150px;
+  grid-area: img;
+}
+
+.name {
+  color: #0082b3;
+  font-size: 14px;
+  height: 40px;
+  vertical-align: middle;
+  grid-area: name;
+}
+
+.parameters, .description, .cart {
+  color: #666666;
+  font-size: 12px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.parameters {
+  grid-area: param;
+}
+
+.description {
+  grid-area: describ;
+}
+
+.price {
+  height: 30px;
+  width: 90px;
+  display: inline-block;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 5px 20px;
+  position: relative;
+  background-color: #84bfbd;
+  grid-area: price;
+
+  &__hole {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+}
+
+.cart {
+  grid-area: cart;
+
+  &:before {
+    content: "\f107";
+    width: 28px;
+    height: 30px;
+    opacity: 0.65;
+    margin-left: 10px;
+    background-image: url("../../../assets/cart.png");
+    background-size: cover;
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+  }
+}

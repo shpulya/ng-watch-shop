@@ -59,6 +59,14 @@
       <div (click)="onCheckFilter(watch.key)">
         <i class="fa fa-check" aria-hidden="true"></i></div>
       <span>{{watch.key}}</span></div>
+
+    <div
+      class="sidenav__checkbox_group__item"
+      *ngFor="let watch of watches | async | groupBy: 'screenType'">
+      <input type="checkbox" class="checkbox" id="checkbox" />
+      <label for="checkbox">{{watch.key}}</label>
+    </div>
+
   </div>
   <hr *ngIf="!isOpenScreenTypeFilter" style="margin: 0 20px"/>
 
