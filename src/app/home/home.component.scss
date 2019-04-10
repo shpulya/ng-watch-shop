@@ -1,0 +1,104 @@
+.home {
+  width: 100%;
+  display: inline-block;
+
+  &__main {
+    display: inline-block;
+    width: calc(100% - 325px);
+
+    &__header {
+      margin: 50px 30px 50px 80px;
+      display: inline-block;
+      width: 100%;
+      > span {
+        font-size: 24px;
+        color: #333333;
+        display: inline-block;
+        float:left;
+        clear:right;
+      }
+    }
+
+    &__mode_view {
+      color: #666666;
+      font-size: 12px;
+      display: inline-block;
+      float: right;
+      width: 400px;
+
+      select {
+        margin: 0 15px;
+        width: 150px;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #979797;
+        border-radius: 5px;
+        height: 30px;
+        color: #2f2f2f;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("../../assets/caret-down.png") 90% / 7% no-repeat #ffffff;
+      }
+    }
+
+    &__container {
+      padding: 0 30px 0 80px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__tale {
+        box-sizing: border-box;
+        padding: 10px;
+        width: calc(25% - 20px);
+        display:flex;
+        margin: 10px;
+        flex-direction: column;
+      }
+
+    }
+  }
+
+  &__pagination {
+    text-align: center;
+    margin: 20px;
+
+    /deep/ .ngx-pagination .current {
+      background:  #84bfbd;
+      border-radius: 3px;
+    }
+
+    /deep/ .ngx-pagination .pagination-next {
+      display: none;
+    }
+
+    /deep/ .ngx-pagination .pagination-previous {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1050px) {
+  .home__main__container__tale {
+    width: calc(33% - 20px);
+  }
+}
+
+@media (max-width: 1050px){
+  .home__main__container__tale {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 850px) and (min-width: 600px){
+  .home__main__container__tale {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .home__main {
+    width: 100%;
+  }
+}

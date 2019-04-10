@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="home">
+  <app-sidenav [watches]="watches"></app-sidenav>
+
+  <div class="home__main">
+    <div class="home__main__header">
+      <span>Smartwatches</span>
+      <div class="home__main__mode_view">
+        <span>Sorting:</span>
+        <select name="sorting">
+          <option value="popular">Most Popular</option>
+          <option value="low_price">Lowest Price</option>
+          <option value="high_price">Highest Price</option>
+        </select>
+        <div class="home__main__mode_view__list" (click)="toogleViewIcon()"></div>
+        <div class="home__main__mode_view__card"></div>
+      </div>
+
+    </div>
+
+    <div class="home__main__container">
+      <app-watch-tile
+        [watch] = watch
+        *ngFor="let watch of watches | async | paginate: { itemsPerPage: 8, currentPage: page }"
+        class="home__main__container__tale"></app-watch-tile></div>
+
+    <hr/>
+    <pagination-controls class="home__pagination"
+      (pageChange)="page = $event"
+      autoHide="true"
+      responsive="true"
+      previousLabel=""
+      nextLabel=""
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+
+</div>

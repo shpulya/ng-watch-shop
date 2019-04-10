@@ -1,0 +1,65 @@
+<div class="sidenav">
+  <span class="sidenav__header">Filters</span>
+
+  <div class="sidenav__filter {{isOpenPriceFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}" (click)="isOpenPriceFilter = !isOpenPriceFilter" >
+    Price
+  </div>
+  <form class="sidenav__price_setter" #filters=ngForm (ngSubmit)="onUpdateWatchList(filters)" novalidate>
+    <div class="form-group" *ngIf="isOpenPriceFilter">
+      <input type="text" placeholder="From" name="priceFrom" ngModel #priceFrom="ngModel" pattern="^[0-9]{5}">
+      <span>&emsp;&mdash;&emsp;</span>
+      <input type="text" placeholder="To" name="priceTo" ngModel #priceTo="ngModel" pattern="^[0-9]{5}">
+      <span> $ </span>
+    </div>
+  </form>
+  <hr *ngIf="!isOpenPriceFilter"/>
+
+  <div class="sidenav__filter {{isOpenManufacturerFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}" (click)="isOpenManufacturerFilter = !isOpenManufacturerFilter " >
+    Manufacturer
+  </div>
+  <div class="sidenav__checkbox_group" *ngIf="isOpenManufacturerFilter">
+    <div class="sidenav__checkbox_group__item" *ngFor="let watch of watches | async | groupBy: 'manufacturer'">
+      <div (click)="onCheckFilter(watch.key)"><i class="fa fa-check" aria-hidden="true"></i></div>
+      <span>{{watch.key}}</span>
+    </div>
+  </div>
+  <hr *ngIf="!isOpenManufacturerFilter"/>
+
+  <div
+    class="sidenav__filter {{isOpenOSFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
+    (click)="isOpenOSFilter = !isOpenOSFilter " >
+      OS</div>
+
+  <div
+    class="sidenav__checkbox_group"
+    *ngIf="isOpenOSFilter">
+
+    <div
+      class="sidenav__checkbox_group__item"
+      *ngFor="let watch of watches | async | groupBy: 'os'">
+
+      <div (click)="onCheckFilter(watch.key)">
+        <i class="fa fa-check" aria-hidden="true"></i></div>
+      <span>{{watch.key}}</span></div></div>
+  <hr *ngIf="!isOpenOSFilter"/>
+
+  <div
+    class="sidenav__filter {{isOpenScreenTypeFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
+    (click)="isOpenScreenTypeFilter = !isOpenScreenTypeFilter " >
+      Screen Type</div>
+
+  <div
+    class="sidenav__checkbox_group"
+    *ngIf="isOpenScreenTypeFilter">
+
+    <div
+      class="sidenav__checkbox_group__item"
+      *ngFor="let watch of watches | async | groupBy: 'screenType'">
+
+      <div (click)="onCheckFilter(watch.key)">
+        <i class="fa fa-check" aria-hidden="true"></i></div>
+      <span>{{watch.key}}</span></div>
+  </div>
+  <hr *ngIf="!isOpenScreenTypeFilter" style="margin: 0 20px"/>
+
+</div>
