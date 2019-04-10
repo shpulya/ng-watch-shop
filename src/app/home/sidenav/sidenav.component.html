@@ -18,9 +18,23 @@
     Manufacturer
   </div>
   <div class="sidenav__checkbox_group" *ngIf="isOpenManufacturerFilter">
-    <div class="sidenav__checkbox_group__item" *ngFor="let watch of watches | async | groupBy: 'manufacturer'">
-      <div (click)="onCheckFilter(watch.key)"><i class="fa fa-check" aria-hidden="true"></i></div>
-      <span>{{watch.key}}</span>
+    <div
+      class="sidenav__checkbox_group__item"
+      *ngFor="let watch of watches | async | groupBy: 'manufacturer'">
+
+      <div>
+        <input
+          type="checkbox"
+          class="checkbox"
+          [id]="watch?.key"
+          ([ngModel])="watch.checked"/>
+        <label
+          [attr.for]="watch?.key"
+          (click)="onCheck(watch?.key)">
+          {{watch.key}}
+        </label>
+      </div>
+
     </div>
   </div>
   <hr *ngIf="!isOpenManufacturerFilter"/>
@@ -28,7 +42,8 @@
   <div
     class="sidenav__filter {{isOpenOSFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
     (click)="isOpenOSFilter = !isOpenOSFilter " >
-      OS</div>
+      OS
+  </div>
 
   <div
     class="sidenav__checkbox_group"
@@ -38,15 +53,29 @@
       class="sidenav__checkbox_group__item"
       *ngFor="let watch of watches | async | groupBy: 'os'">
 
-      <div (click)="onCheckFilter(watch.key)">
-        <i class="fa fa-check" aria-hidden="true"></i></div>
-      <span>{{watch.key}}</span></div></div>
+      <div>
+        <input
+          type="checkbox"
+          class="checkbox"
+          [id]="watch?.key"
+          ([ngModel])="watch.checked"/>
+        <label
+          [attr.for]="watch?.key"
+          (click)="onCheck(watch?.key)">
+          {{watch.key}}
+        </label>
+      </div>
+
+    </div>
+
+  </div>
   <hr *ngIf="!isOpenOSFilter"/>
 
   <div
     class="sidenav__filter {{isOpenScreenTypeFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
     (click)="isOpenScreenTypeFilter = !isOpenScreenTypeFilter " >
-      Screen Type</div>
+      Screen Type
+  </div>
 
   <div
     class="sidenav__checkbox_group"
@@ -56,15 +85,19 @@
       class="sidenav__checkbox_group__item"
       *ngFor="let watch of watches | async | groupBy: 'screenType'">
 
-      <div (click)="onCheckFilter(watch.key)">
-        <i class="fa fa-check" aria-hidden="true"></i></div>
-      <span>{{watch.key}}</span></div>
+      <div>
+        <input
+          type="checkbox"
+          class="checkbox"
+          [id]="watch?.key"
+          ([ngModel])="watch.checked"/>
+        <label
+          [attr.for]="watch?.key"
+          (click)="onCheck(watch?.key)">
+          {{watch.key}}
+        </label>
+      </div>
 
-    <div
-      class="sidenav__checkbox_group__item"
-      *ngFor="let watch of watches | async | groupBy: 'screenType'">
-      <input type="checkbox" class="checkbox" id="checkbox" />
-      <label for="checkbox">{{watch.key}}</label>
     </div>
 
   </div>

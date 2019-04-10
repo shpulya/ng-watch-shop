@@ -20,13 +20,8 @@ export class SidenavComponent implements OnInit {
   constructor() {
   }
 
-  onCheckFilter (filters, item, isChecked) {
-    if (isChecked) {
-      this.screenTypes.push(item);
-    } else {
+  onCheck (model) {
 
-    }
-    isChecked = !isChecked;
   }
 
   ngOnInit() {
