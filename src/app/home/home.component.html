@@ -33,7 +33,7 @@
       <ng-container *ngIf="viewIconState === 'line'">
         <app-watch-line
           [watch] = watch
-          *ngFor="let watch of watches | async | paginate: { itemsPerPage: 20, currentPage: page }"
+          *ngFor="let watch of watches | async | paginate: { itemsPerPage: 10, currentPage: page }"
           class="home__main__container__line">
         </app-watch-line>
       </ng-container>

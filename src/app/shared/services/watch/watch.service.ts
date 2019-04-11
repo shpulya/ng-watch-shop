@@ -17,6 +17,6 @@ export class WatchService {
 
   getWatchById(watchId): Observable<Watch> {
     return this.http.get<Watch[]>('/data/watches.json')
-      .pipe(map(watches => watches.find(watch => watch.id === 2)));
+      .pipe(map(watches => watches.find(watch => watch.id === parseInt(watchId, 10))));
   }
 }
