@@ -6,6 +6,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'angular-5-popup';
 import {Popup} from 'ng2-opd-popup';
+import {CartService} from '../cart/cart.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild(SidenavComponent) sidenav;
   @ViewChild('modal') modal: ModalComponent;
   @ViewChild('header') header;
+  private modals: any[] = [];
 
 
   watches: Observable<Watch[]>;
@@ -30,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
 
   constructor(
     private watchService: WatchService,
-    private popup: Popup) {
+    private modalService: CartService) {
     this.watches = this.watchService.getAllWatches();
   }
 
@@ -39,9 +41,8 @@ export class HomeComponent implements AfterViewInit {
   }
 
   openModal() {
-    //this.modal.openModal('modal-1');
-    //document.getElementById('modal-1').openModal();
-    this.popup.show();
+    this.modalService.open('modal-1');
+
     this.submitted = event;
   }
 
@@ -53,5 +54,6 @@ export class HomeComponent implements AfterViewInit {
     this.manufacturers = this.sidenav.manufacturers;
     this.oses = this.sidenav.oses;
     this.screenTypes = this.sidenav.screenTypes;
+    this.modals.push(this);
   }
 }
