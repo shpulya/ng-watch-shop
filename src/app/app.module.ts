@@ -21,6 +21,7 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import {ScModalModule} from 'angular-5-popup';
 import {PopupModule} from 'ng2-opd-popup';
+import {CartService} from './cart/cart.service';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {PopupModule} from 'ng2-opd-popup';
     PopupModule
   ],
   providers: [
-    WatchService
+    WatchService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
