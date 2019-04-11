@@ -1,6 +1,5 @@
 %filter_row {
-  padding-left: 30px;
-  padding-right: 16px;
+
   width: 100%;
   display: block;
   line-height: 40px;
@@ -28,6 +27,10 @@
   border-right: 1px solid #979797;
   display: inline-block;
   vertical-align: top;
+
+  &__menu {
+    margin: 10px 16px 10px 30px;
+  }
 
   &__header {
     @extend %filter_row;
@@ -101,6 +104,13 @@
   border: 1px solid #2f2f2f;
   border-radius: 5px;
   padding: 5px;
+  margin: 10px 40px 10px 10px;
+
+  .delete {
+    color: #e2380b;
+    display: inline-block;
+    float: right;
+  }
 }
 
 @media (max-width: 600px) {

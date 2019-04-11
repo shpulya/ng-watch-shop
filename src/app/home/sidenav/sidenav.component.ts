@@ -17,26 +17,17 @@ export class SidenavComponent implements OnInit {
   manufacturers = [];
   oses = [];
   screenTypes = [];
-  isSetManufacturerFilters = false;
-  isSetOSFilters = false;
-  isSetScreenTypeFilters = false;
 
   constructor() {
   }
 
-  onCheck (arr, value, isState) {
+  onCheck (arr, value) {
     const index = arr.indexOf(value);
 
     if (index === -1) {
       arr.push(value);
     } else {
       arr.splice(index, 1);
-    }
-
-    if (!!arr.toString()) {
-      isState = true;
-    } else {
-      isState = false;
     }
   }
 
