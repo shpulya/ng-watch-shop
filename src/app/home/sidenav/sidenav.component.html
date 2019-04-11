@@ -1,21 +1,70 @@
 <div class="sidenav">
   <span class="sidenav__header">Filters</span>
 
-  <div class="sidenav__filter {{isOpenPriceFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}" (click)="isOpenPriceFilter = !isOpenPriceFilter" >
+  <div class="sidenav__header__applied_filter shaf">
+    <div class="shaf__manufacturer"  *ngIf="isSetManufacturerFilters">
+      Manufacturer:
+      <div
+        class="shaf__manufacturer__item"
+        *ngFor="let manufacturer of manufacturers">
+          {{manufacturer}}
+      </div>
+    </div>
+    <div class="shaf__os" *ngIf="isSetOSFilters">
+      OS:
+      <div
+        class="shaf__os__item"
+        *ngFor="let os of oses">
+          {{os}}
+      </div>
+    </div>
+    <div class="shaf__screen_type" *ngIf="isSetScreenTypeFilters">
+      Screen Type:
+      <div
+        class="shaf__screen_type__item"
+        *ngFor="let screenType of screenTypes">
+          {{screenType}}
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="sidenav__filter {{isOpenPriceFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
+    (click)="isOpenPriceFilter = !isOpenPriceFilter" >
     Price
   </div>
-  <form class="sidenav__price_setter" #filters=ngForm (ngSubmit)="onUpdateWatchList(filters)" novalidate>
+
+  <form
+    class="sidenav__price_setter"
+    #filters=ngForm
+    (ngSubmit)="onUpdateWatchList(filters)"
+    novalidate>
+
     <div class="form-group" *ngIf="isOpenPriceFilter">
-      <input type="text" placeholder="From" name="priceFrom" ngModel #priceFrom="ngModel" pattern="^[0-9]{5}">
+      <input
+        type="text"
+        placeholder="From"
+        name="priceFrom"
+        ngModel #priceFrom="ngModel"
+        pattern="^[0-9]{5}">
       <span>&emsp;&mdash;&emsp;</span>
-      <input type="text" placeholder="To" name="priceTo" ngModel #priceTo="ngModel" pattern="^[0-9]{5}">
+
+      <input
+        type="text"
+        placeholder="To"
+        name="priceTo"
+        ngModel
+        #priceTo="ngModel"
+        pattern="^[0-9]{5}">
       <span> $ </span>
     </div>
   </form>
   <hr *ngIf="!isOpenPriceFilter"/>
 
-  <div class="sidenav__filter {{isOpenManufacturerFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}" (click)="isOpenManufacturerFilter = !isOpenManufacturerFilter " >
-    Manufacturer
+  <div
+    class="sidenav__filter {{isOpenManufacturerFilter ? 'sidenav__filter_open' : 'sidenav__filter_close'}}"
+    (click)="isOpenManufacturerFilter = !isOpenManufacturerFilter " >
+      Manufacturer
   </div>
   <div class="sidenav__checkbox_group" *ngIf="isOpenManufacturerFilter">
     <div
@@ -30,7 +79,7 @@
           ([ngModel])="watch.checked"/>
         <label
           [attr.for]="watch?.key"
-          (click)="onCheck(watch?.key)">
+          (click)="onCheck(manufacturers, watch?.key, isSetManufacturerFilters)">
           {{watch.key}}
         </label>
       </div>
@@ -61,7 +110,7 @@
           ([ngModel])="watch.checked"/>
         <label
           [attr.for]="watch?.key"
-          (click)="onCheck(watch?.key)">
+          (click)="onCheck(oses, watch?.key, isSetOSFilters)">
           {{watch.key}}
         </label>
       </div>
@@ -93,7 +142,7 @@
           ([ngModel])="watch.checked"/>
         <label
           [attr.for]="watch?.key"
-          (click)="onCheck(watch?.key)">
+          (click)="onCheck(screenTypes, watch?.key, isSetScreenTypeFilters)">
           {{watch.key}}
         </label>
       </div>

@@ -10,24 +10,38 @@ import {Watch} from '../../shared/watch';
 export class SidenavComponent implements OnInit {
   @Input() watches: Observable<Watch[]>
 
-  isOpenPriceFilter: boolean;
-  isOpenScreenTypeFilter: boolean;
-  isOpenManufacturerFilter: boolean;
-  isOpenOSFilter: boolean;
-
+  isOpenPriceFilter = false;
+  isOpenScreenTypeFilter = false;
+  isOpenManufacturerFilter = false;
+  isOpenOSFilter = false;
+  manufacturers = [];
+  oses = [];
   screenTypes = [];
+  isSetManufacturerFilters = false;
+  isSetOSFilters = false;
+  isSetScreenTypeFilters = false;
 
   constructor() {
   }
 
-  onCheck (model) {
+  onCheck (arr, value, isState) {
+    const index = arr.indexOf(value);
 
+    if (index === -1) {
+      arr.push(value);
+    } else {
+      arr.splice(index, 1);
+    }
+
+    if (!!arr.toString()) {
+      isState = true;
+    } else {
+      isState = false;
+    }
   }
 
+
   ngOnInit() {
-    this.isOpenPriceFilter = false;
-    this.isOpenScreenTypeFilter = false;
-    this.isOpenManufacturerFilter = false;
-    this.isOpenOSFilter = false;
+
   }
 }

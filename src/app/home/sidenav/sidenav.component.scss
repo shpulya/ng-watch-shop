@@ -97,6 +97,12 @@
   }
 }
 
+.shaf__manufacturer__item, .shaf__os__item, .shaf__screen_type__item {
+  border: 1px solid #2f2f2f;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 @media (max-width: 600px) {
   .sidenav {
     width: 100%;
