@@ -18,6 +18,7 @@ import { GroupByPipe } from './shared/pipes/group-by.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { WatchLineComponent } from './home/watch-line/watch-line.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { AppRoutingModule} from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [
     WatchService
