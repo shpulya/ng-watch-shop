@@ -4,6 +4,8 @@ import { Watch } from '../shared/watch';
 import { Observable } from 'rxjs';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Router } from '@angular/router';
+import { ModalComponent } from 'angular-5-popup';
+
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements AfterViewInit {
 
   @ViewChild(SidenavComponent) sidenav;
+  @ViewChild('modal') modal: ModalComponent;
+  @ViewChild('header') header;
+
 
   watches: Observable<Watch[]>;
   viewIconState = 'grid';
@@ -20,6 +25,7 @@ export class HomeComponent implements AfterViewInit {
   manufacturers = [];
   oses = [];
   screenTypes = [];
+  submitted;
 
   constructor(private watchService: WatchService) {
     this.watches = this.watchService.getAllWatches();
@@ -27,6 +33,16 @@ export class HomeComponent implements AfterViewInit {
 
   onToggleViewIcon (state) {
     this.viewIconState = state;
+  }
+
+  openModal() {
+    //this.modal.openModal('modal-1');
+    document.getElementById('modal-1').openModal();
+    this.submitted = event;
+  }
+
+  closeModal(id) {
+    this.modal.closeModal(id);
   }
 
   ngAfterViewInit() {

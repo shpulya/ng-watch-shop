@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header #header (openModal)="openModal($event)"></app-header>
 
 <div class="home">
   <app-sidenav [watches]="watches"></app-sidenav>
@@ -50,5 +50,20 @@
       screenReaderPageLabel="page"
       screenReaderCurrentLabel="You're on page">
     </pagination-controls>
-
 </div>
+
+  <app-cart id="modal-1" class="default" #modal>
+    <div class="modal">
+      <div class="modal-header">
+        This my title
+        <button class="sc-modal-close" (click)="closeModal('modal-1');"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></button>
+      </div>
+      <div class="modal-body">
+        <h1>A Custom Modal Name</h1>
+        <p>
+          Home page text: <input type="text"  />
+        </p>
+      </div>
+    </div>
+    <div class="modal-background"></div>
+  </app-cart>

@@ -19,7 +19,7 @@
     ${{watch?.price}}
     <div class="price__hole"></div>
   </div>
-  <div class="cart">
+  <div class="cart" (click)="addItems(watch?.id)">
     Add to cart
   </div>
 </div>

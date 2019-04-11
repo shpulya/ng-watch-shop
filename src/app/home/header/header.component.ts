@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,11 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  @Output() openModal = new EventEmitter<boolean>();
 
-  constructor() { }
-
-  ngOnInit() {
+  open() {
+    this.openModal.emit(true);
   }
-
 }

@@ -19,6 +19,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { WatchLineComponent } from './home/watch-line/watch-line.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AppRoutingModule} from './app-routing/app-routing.module';
+import {ScModalModule} from 'angular-5-popup';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AppRoutingModule} from './app-routing/app-routing.module';
     HttpClientModule,
     NgxPaginationModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScModalModule
   ],
   providers: [
     WatchService

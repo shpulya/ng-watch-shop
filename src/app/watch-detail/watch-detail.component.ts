@@ -5,6 +5,7 @@ import { WatchService } from '../shared/services';
 import { Watch } from '../shared/watch';
 import { mergeMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-cart.service';
 
 
 
@@ -20,15 +21,15 @@ export class WatchDetailComponent implements OnInit {
   watch: Watch;
 
 
-  constructor(private route: ActivatedRoute, private watchService: WatchService) {
+  constructor(private route: ActivatedRoute, private watchService: WatchService, private shoppingCartService: ShoppingCartService) {
 
     this.routeSubscription = route.params.subscribe(params => this.watchId = params['watchId']);
     this.watchService.getWatchById(this.watchId).subscribe(watch => { this.watch = watch; });
 
+  }
 
-    // route.params
-    //   .pipe(mergeMap(({watchId}) => watchService.getWatchById(watchId)))
-    //   .subscribe(watch => this.watch = watch);
+  addItems() {
+    this.shoppingCartService.addItem(this.watch.id);
   }
 
   ngOnInit() {

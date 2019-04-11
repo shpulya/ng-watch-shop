@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Watch} from '../../shared/watch';
+import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-watch-tile',
@@ -9,7 +10,11 @@ import {Watch} from '../../shared/watch';
 export class WatchTileComponent implements OnInit {
   @Input() watch: Watch;
 
-  constructor() { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
+
+  addItems() {
+    this.shoppingCartService.addItem(this.watch.id);
+  }
 
   ngOnInit() {
   }
