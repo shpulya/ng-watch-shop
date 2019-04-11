@@ -2,8 +2,9 @@
   <img
     class="image"
     src="../../../assets/watches/{{watch?.image}}"
-    alt="{{watch?.name}}">
-  <div class="name">
+    alt="{{watch?.name}}"
+    [routerLink]="['/watch/'+watch.id]">
+  <div class="name"  [routerLink]="['/watch/'+watch.id]">
     {{watch?.name}}
   </div>
   <div class="parameters">

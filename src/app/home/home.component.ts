@@ -3,6 +3,7 @@ import { WatchService } from '../shared/services/watch/watch.service';
 import { Watch } from '../shared/watch';
 import { Observable } from 'rxjs';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
