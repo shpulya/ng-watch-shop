@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'angular-5-popup';
+import {Popup} from 'ng2-opd-popup';
 
 
 @Component({
@@ -27,7 +28,9 @@ export class HomeComponent implements AfterViewInit {
   screenTypes = [];
   submitted;
 
-  constructor(private watchService: WatchService) {
+  constructor(
+    private watchService: WatchService,
+    private popup: Popup) {
     this.watches = this.watchService.getAllWatches();
   }
 
@@ -37,7 +40,8 @@ export class HomeComponent implements AfterViewInit {
 
   openModal() {
     //this.modal.openModal('modal-1');
-    document.getElementById('modal-1').openModal();
+    //document.getElementById('modal-1').openModal();
+    this.popup.show();
     this.submitted = event;
   }
 
