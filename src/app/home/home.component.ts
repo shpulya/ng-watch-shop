@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { WatchService } from '../shared/services/watch/watch.service';
 import { Watch } from '../shared/watch';
 import { Observable } from 'rxjs';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
+
+  @ViewChild(SidenavComponent) sidenav;
+
   watches: Observable<Watch[]>;
-  viewIconState: string
+  viewIconState = 'grid';
   page = 1;
+  manufacturers = [];
+  oses = [];
+  screenTypes = [];
 
   constructor(private watchService: WatchService) {
     this.watches = this.watchService.getAllWatches();
@@ -21,7 +28,9 @@ export class HomeComponent implements OnInit {
     this.viewIconState = state;
   }
 
-  ngOnInit() {
-    this.viewIconState = 'grid';
+  ngAfterViewInit() {
+    this.manufacturers = this.sidenav.manufacturers;
+    this.oses = this.sidenav.oses;
+    this.screenTypes = this.sidenav.screenTypes;
   }
 }

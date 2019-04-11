@@ -14,9 +14,10 @@ import {  } from './shared/services/';
 import { WatchService } from './shared/services/';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
-import { GroupByPipe } from './shared/group-by.pipe';
+import { GroupByPipe } from './shared/pipes/group-by.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { WatchLineComponent } from './home/watch-line/watch-line.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { WatchLineComponent } from './home/watch-line/watch-line.component';
     SidenavComponent,
     WatchTileComponent,
     GroupByPipe,
-    WatchLineComponent
+    WatchLineComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
