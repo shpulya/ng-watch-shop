@@ -82,10 +82,10 @@
             type="checkbox"
             class="checkbox"
             [id]="watch?.key"
-            ([ngModel])="watch.checked"/>
+            ([ngModel])="watch.checked"
+            (click)="onCheck(manufacturers, watch?.key)"/>
           <label
-            [attr.for]="watch?.key"
-            (click)="onCheck(manufacturers, watch?.key)">
+            [attr.for]="watch?.key">
             {{watch.key}}
           </label>
         </div>
@@ -113,10 +113,10 @@
             type="checkbox"
             class="checkbox"
             [id]="watch?.key"
-            ([ngModel])="watch.checked"/>
+            ([ngModel])="watch.checked"
+            (click)="onCheck(oses, watch?.key)"/>
           <label
-            [attr.for]="watch?.key"
-            (click)="onCheck(oses, watch?.key)">
+            [attr.for]="watch?.key">
             {{watch.key}}
           </label>
         </div>
@@ -145,10 +145,11 @@
             type="checkbox"
             class="checkbox"
             [id]="watch?.key"
-            ([ngModel])="watch.checked"/>
+            ([ngModel])="watch.checked"
+            (click)="onCheck(screenTypes, watch?.key)"
+          />
           <label
-            [attr.for]="watch?.key"
-            (click)="onCheck(screenTypes, watch?.key)">
+            [attr.for]="watch?.key">
             {{watch.key}}
           </label>
         </div>

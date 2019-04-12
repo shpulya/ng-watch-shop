@@ -1,50 +1,42 @@
-/* MODAL STYLES
--------------------------------*/
-modal {
-  /* modals are hidden by default */
-  display: none;
+.view_line {
+  display: grid;
+  grid-template-areas: "name count";
+  grid-template-rows: 1fr ;
+  grid-template-columns: 1fr 150px;
+  grid-gap: 10px;
+  width: 40%;
+  margin: 0 auto;
+  padding: 5px 0;
+}
 
-  .modal {
-    /* modal container fixed across whole screen */
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.name {
+  color: #0082b3;
+  font-size: 14px;
+  height: 40px;
+  vertical-align: middle;
+  grid-area: name;
+}
 
-    /* z-index must be higher than .modal-background */
-    z-index: 1000;
+.count {
+  height: 30px;
+  width: 150px;
+  display: inline-block;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 5px 20px;
+  position: relative;
+  background-color: #979797;
+  grid-area: count;
 
-    /* enables scrolling for tall modals */
-    overflow: auto;
-
-    .modal-body {
-      padding: 20px;
-      background: #fff;
-
-      /* margin exposes part of the modal background */
-      margin: 40px;
-    }
+  &__descending, &__increase{
+    display: inline-block;
+    line-height: 20px;
   }
 
-  .modal-background {
-    /* modal background fixed across whole screen */
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    /* semi-transparent black  */
-    background-color: #000;
-    opacity: 0.75;
-
-    /* z-index must be below .modal and above everything else  */
-    z-index: 900;
+  &:after {
+    content: '\f1f8';
+    font-family: FontAwesome;
   }
 }
 
-body.modal-open {
-  /* body overflow is hidden to hide main scrollbar when modal window is open */
-  overflow: hidden;
-}
+

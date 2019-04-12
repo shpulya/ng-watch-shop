@@ -28,8 +28,8 @@ export class WatchDetailComponent implements OnInit {
 
   }
 
-  addItems() {
-    this.shoppingCartService.addItem(this.watch.id);
+  addWatchToCart() {
+    this.shoppingCartService.addWatchToCart(this.watch);
   }
 
   ngOnInit() {

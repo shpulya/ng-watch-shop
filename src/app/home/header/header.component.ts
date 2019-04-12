@@ -1,15 +1,22 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  @Output() openModal = new EventEmitter<boolean>();
+export class HeaderComponent implements OnInit {
+  counter: number;
 
-  open() {
-    this.openModal.emit(true);
+  constructor(private shoppingCartService: ShoppingCartService) {
+    this.shoppingCartService.currentCounter.subscribe(c => this.counter = c);
+
   }
+
+  ngOnInit() {
+
+  }
+
 }

@@ -1,1 +1,21 @@
-<div>Hello</div>
+<a [routerLink]="['']">Back to catalog</a>
+
+
+<div *ngFor="let watch of watches | groupBy: 'name'">
+  <div class="view_line">
+    <div class="name"  [routerLink]="['/watch/'+watch?.value[0].id]">
+      {{watch?.key}}
+    </div>
+    <div class="count">
+      <div class="count__descending">	&nbsp;-&nbsp;</div>
+      {{watch?.value.length}}
+      <div class="count__increase">	&nbsp;+&nbsp;</div>
+    </div>
+  </div>
+  <hr/>
+</div>
+
+
+
+
+

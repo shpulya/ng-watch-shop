@@ -12,8 +12,8 @@ export class WatchTileComponent implements OnInit {
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
-  addItems() {
-    this.shoppingCartService.addItem(this.watch.id);
+  addWatchToCart() {
+    this.shoppingCartService.addWatchToCart(this.watch);
   }
 
   ngOnInit() {

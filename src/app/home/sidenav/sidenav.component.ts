@@ -1,6 +1,7 @@
 import {Component, OnInit, Input } from '@angular/core';
 import { Observable} from 'rxjs';
 import {Watch} from '../../shared/watch';
+import {WatchService} from '../../shared/services';
 
 @Component({
   selector: 'app-sidenav',
@@ -18,7 +19,7 @@ export class SidenavComponent implements OnInit {
   oses = [];
   screenTypes = [];
 
-  constructor() {
+  constructor(private watchService: WatchService) {
   }
 
   onCheck (arr, value) {
@@ -29,6 +30,8 @@ export class SidenavComponent implements OnInit {
     } else {
       arr.splice(index, 1);
     }
+
+    this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes);
   }
 
 
