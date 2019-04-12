@@ -29,6 +29,9 @@ export class SidenavComponent implements OnInit {
       arr.push(value);
     } else {
       arr.splice(index, 1);
+
+      const ele = document.getElementById(value) as HTMLInputElement;
+      ele.checked = false;
     }
 
     this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes);
