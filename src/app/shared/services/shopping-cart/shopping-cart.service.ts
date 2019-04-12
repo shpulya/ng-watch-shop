@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Watch} from '../../watch';
+import { Watch } from '../../watch';
 import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,9 @@ export class ShoppingCartService {
 
   addWatchToCart(watch: Watch) {
     this.watchesSource.next(watch);
-    this.currentWatches.subscribe(item => this.watches.push(item));
+    this.currentWatches.pipe(first()).subscribe(item => this.watches.push(item));
     this.counterSource.next(this.watches.length);
+    console.log(this.watches);
   }
 
   cartList () {
