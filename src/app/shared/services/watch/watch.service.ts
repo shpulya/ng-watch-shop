@@ -19,6 +19,9 @@ export class WatchService {
   private screenTypesSource = new BehaviorSubject([]);
   currentScreenTypes = this.screenTypesSource.asObservable();
 
+  private priceRangeSource = new BehaviorSubject([]);
+  currentPriceRange = this.priceRangeSource.asObservable();
+
   constructor(private http: HttpClient) { }
 
   getAllWatches(): Observable<Watch[]> {
@@ -30,9 +33,10 @@ export class WatchService {
       .pipe(map(watches => watches.find(watch => watch.id === parseInt(watchId, 10))));
   }
 
-  changeFiltersStates(manufactures, OSes, screenTypes) {
+  changeFiltersStates(manufactures, OSes, screenTypes, priceRange) {
     this.manufacturersSource.next(manufactures);
     this.OSesSource.next(OSes);
     this.screenTypesSource.next(screenTypes);
+    this.priceRangeSource.next(priceRange);
   }
 }

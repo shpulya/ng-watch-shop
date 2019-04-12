@@ -51,7 +51,9 @@
           type="text"
           placeholder="From"
           name="priceFrom"
-          ngModel #priceFrom="ngModel"
+          ngModel
+          #priceFrom="ngModel"
+          onchange="changePriceRange('from',priceFrom)"
           pattern="^[0-9]{5}">
         <span>&emsp;&mdash;&emsp;</span>
 
@@ -61,6 +63,7 @@
           name="priceTo"
           ngModel
           #priceTo="ngModel"
+          onchange="changePriceRange('to',priceTo)"
           pattern="^[0-9]{5}">
         <span> $ </span>
       </div>

@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   manufacturers = [];
   oses = [];
   screenTypes = [];
+  priceRange = [];
 
   constructor(
     private watchService: WatchService) {
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.watchService.currentManufacturers.subscribe(manufacturers => this.manufacturers = manufacturers);
     this.watchService.currentOSes.subscribe(OSes => this.oses = OSes);
     this.watchService.currentScreenTypes.subscribe(screenTypes => this.screenTypes = screenTypes);
+    this.watchService.currentPriceRange.subscribe(priceRange => this.priceRange = priceRange);
 
   }
 

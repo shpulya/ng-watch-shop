@@ -18,8 +18,14 @@ export class SidenavComponent implements OnInit {
   manufacturers = [];
   oses = [];
   screenTypes = [];
+  priceRange = [];
 
   constructor(private watchService: WatchService) {
+  }
+
+  changePriceRange(key, value) {
+    this.priceRange.push({key: value});
+    console.log(this.priceRange);
   }
 
   onCheck (arr, value) {
@@ -34,7 +40,7 @@ export class SidenavComponent implements OnInit {
       ele.checked = false;
     }
 
-    this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes);
+    this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes, this.priceRange);
   }
 
 
