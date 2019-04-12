@@ -13,6 +13,16 @@ export class CartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {
   }
 
+  onIncreaseCount(watch) {
+    this.shoppingCartService.increaseCount(watch);
+    this.watches = this.shoppingCartService.cartList();
+  }
+
+  onReduceCount(watch) {
+    this.shoppingCartService.reduceCount(watch);
+    this.watches = this.shoppingCartService.cartList();
+  }
+
   ngOnInit() {
     this.watches = this.shoppingCartService.cartList();
   }

@@ -28,15 +28,11 @@
   background-color: #979797;
   grid-area: count;
 
-  &__descending, &__increase{
+  &__descending, &__increase, &__delete_all {
     display: inline-block;
     line-height: 20px;
   }
 
-  &:after {
-    content: '\f1f8';
-    font-family: FontAwesome;
-  }
 }
 
 

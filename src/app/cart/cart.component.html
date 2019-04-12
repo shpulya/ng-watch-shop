@@ -7,9 +7,9 @@
       {{watch?.key}}
     </div>
     <div class="count">
-      <div class="count__descending">	&nbsp;-&nbsp;</div>
+      <div class="count__descending" (click)="onReduceCount(watch?.value[0])">	&nbsp;-&nbsp;</div>
       {{watch?.value.length}}
-      <div class="count__increase">	&nbsp;+&nbsp;</div>
+      <div class="count__increase" (click)="onIncreaseCount(watch?.value[0])">	&nbsp;+&nbsp;</div>
     </div>
   </div>
   <hr/>
