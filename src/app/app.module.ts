@@ -20,7 +20,6 @@ import { WatchLineComponent } from './home/watch-line/watch-line.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import {ScModalModule} from 'angular-5-popup';
-import {PopupModule} from 'ng2-opd-popup';
 import {ShoppingCartService} from './shared/services/shopping-cart/shopping-cart.service';
 import { PriceRangePipe } from './shared/pipes/price-range.pipe';
 
@@ -47,8 +46,7 @@ import { PriceRangePipe } from './shared/pipes/price-range.pipe';
     NgxPaginationModule,
     HttpModule,
     AppRoutingModule,
-    ScModalModule,
-    PopupModule
+    ScModalModule
   ],
   providers: [
     WatchService,
