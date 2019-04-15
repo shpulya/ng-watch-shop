@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
 
   onIncreaseCount(watch) {
     this.shoppingCartService.increaseCount(watch);
-    this.watches = this.shoppingCartService.cartList();
+   // this.watches = this.shoppingCartService.cartList();
   }
 
   onReduceCount(watch) {
@@ -28,6 +28,11 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.watches = this.shoppingCartService.cartList();
+    this.shoppingCartService.shoppingCart$.subscribe(items => {
+      this.watches = items ;
+      console.log(items);
+      }
+    )
+   // this.watches = this.shoppingCartService.cartList();
   }
 }

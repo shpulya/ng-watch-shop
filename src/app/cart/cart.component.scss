@@ -94,11 +94,14 @@
   display: inline-block;
   color: #373737;
   grid-area: total_price;
+  font-size: 28px;
+  vertical-align: middle;
 }
 
 .footer  {
   width: 60%;
   margin: 0 auto;
+  display: flex;
 
   .back {
     background-color: #ededed;
@@ -110,8 +113,11 @@
   }
 
   .final_sum {
-    display: inline-block;
-    float: right;
+    margin-left: auto;
+    order: 2;
+    background-color: #ededed;
+    border-radius-bottom-left: 5px;
+    padding: 30px 20px;
   }
 }
 

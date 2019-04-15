@@ -14,20 +14,33 @@ export class ShoppingCartService {
   watchesListSource =  new BehaviorSubject([]);
   currentWatchesList = this.watchesListSource.asObservable();
   watches = [];
+  shoppingCart$ = new BehaviorSubject(null);
 
   constructor() { }
 
   addWatchToCart(watch: Watch) {
-    this.watchesSource.next(watch);
-    this.currentWatches.pipe(first()).subscribe(item => this.watches.push(item));
+
+    // currentShoppingCart
+    let currentVal = this.shoppingCart$.getValue();
+
+    if (currentVal) {
+      currentVal = [...currentVal, ...watch];
+    } else {
+      currentVal = [watch];
+    }
+
+    this.shoppingCart$.next(currentVal);
+    // this.watchesSource.next(watch);
+    // this.currentWatches.pipe(first()).subscribe(item => this.watches.push(item));
     this.updateCounter();
     console.log(this.watches);
   }
 
   increaseCount(watch) {
-   this.watches.push(watch);
-   this.updateCounter () ;
-   this.updateWatches(this.watches);
+   //this.watches.push(watch);
+    this.shoppingCart$.next([...this.shoppingCart$.getValue(), ...watch]);
+    this.updateCounter () ;
+   //this.updateWatches(this.watches);
   }
 
   reduceCount(watch) {
