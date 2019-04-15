@@ -31,9 +31,11 @@ export class ShoppingCartService {
   }
 
   reduceCount(watch) {
-    this.watches.splice(this.watches.indexOf(watch), 1);
-    this.updateWatches(this.watches);
-    this.updateCounter ();
+    if (this.watches.indexOf(watch) !== -1) {
+      this.watches.splice(this.watches.indexOf(watch), 1);
+      this.updateWatches(this.watches);
+      this.updateCounter ();
+    }
   }
 
   updateCounter () {
