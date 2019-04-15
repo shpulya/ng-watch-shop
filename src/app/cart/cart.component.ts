@@ -8,7 +8,7 @@ import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-car
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  watches = [];
+  watches: Watch[] = [];
 
   constructor(private shoppingCartService: ShoppingCartService) {
   }
@@ -21,6 +21,10 @@ export class CartComponent implements OnInit {
   onReduceCount(watch) {
     this.shoppingCartService.reduceCount(watch);
     this.watches = this.shoppingCartService.cartList();
+  }
+
+  getSum() {
+    return this.watches.reduce((acc, b) => (acc + b.price), 0);
   }
 
   ngOnInit() {

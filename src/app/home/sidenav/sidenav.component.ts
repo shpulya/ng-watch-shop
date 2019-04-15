@@ -24,6 +24,7 @@ export class SidenavComponent implements OnInit {
   }
 
   changePriceRange(key, value) {
+
     this.priceRange.push({key: value});
     console.log(this.priceRange);
   }

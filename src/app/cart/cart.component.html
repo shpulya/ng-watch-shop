@@ -1,4 +1,6 @@
-<a [routerLink]="['']">Back to catalog</a>
+<div class="cart_header">Cart</div>
+
+
 
 
 <div *ngFor="let watch of watches | groupBy: 'name'">
@@ -6,15 +8,24 @@
     <div class="name"  [routerLink]="['/watch/'+watch?.value[0].id]">
       {{watch?.key}}
     </div>
+    <div class="price">
+      ${{watch?.value[0].price}}
+      <div class="price__hole"></div>
+    </div>
     <div class="count">
       <div class="count__descending" (click)="onReduceCount(watch?.value[0])">	&nbsp;-&nbsp;</div>
       {{watch?.value.length}}
       <div class="count__increase" (click)="onIncreaseCount(watch?.value[0])">	&nbsp;+&nbsp;</div>
     </div>
+    <div class="total-item-price" >${{watch?.value.length * watch?.value[0].price}}</div>
   </div>
   <hr/>
 </div>
 
+<div class="footer">
+  <div class="back" [routerLink]="['']">Back to catalog</div>
+  <div class="final_sum" *ngIf="getSum() !== 0">Final Sum : $ {{getSum()}} </div>
+</div>
 
 
 
