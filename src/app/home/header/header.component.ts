@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   counter: number;
 
   constructor(private shoppingCartService: ShoppingCartService) {
-    this.shoppingCartService.currentCounter.subscribe(c => this.counter = c);
+    this.counter = this.shoppingCartService.getWatchesFromCart().length;
 
   }
 

@@ -8,31 +8,45 @@ import { ShoppingCartService } from '../shared/services/shopping-cart/shopping-c
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  watches: Watch[] = [];
+  watches = [];
 
   constructor(private shoppingCartService: ShoppingCartService) {
   }
 
   onIncreaseCount(watch) {
-    this.shoppingCartService.increaseCount(watch);
-   // this.watches = this.shoppingCartService.cartList();
+    this.watches.push(watch);
   }
 
   onReduceCount(watch) {
-    this.shoppingCartService.reduceCount(watch);
-    this.watches = this.shoppingCartService.cartList();
+    if (this.watches.includes(watch)) {
+      this.watches.splice(this.watches.indexOf(watch), 1);
+    }
   }
 
   getSum() {
     return this.watches.reduce((acc, b) => (acc + b.price), 0);
   }
 
+  getWatches() {
+    this.watches = this.shoppingCartService.getWatchesFromCart();
+
+    let groupWatches = Object.values(this.watches.reduce((acc, watch) => {
+      acc[watch.id] = acc[watch.id] || [watch.id, 0];
+      acc[watch.id][1]++;
+      return acc;
+    }, {})).map(w => ({
+      'count': w[1],
+      'item' : this.watches.filter (watch =>
+        watch.id === w[0])[0]
+    }));
+
+    console.log('groupWatches' + groupWatches);
+    return groupWatches;
+  }
+
   ngOnInit() {
-    this.shoppingCartService.shoppingCart$.subscribe(items => {
-      this.watches = items ;
-      console.log(items);
-      }
-    )
-   // this.watches = this.shoppingCartService.cartList();
+    this.watches = this.shoppingCartService.getWatchesFromCart();
+    console.log('init' + this.watches);
+
   }
 }
