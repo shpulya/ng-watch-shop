@@ -1,4 +1,4 @@
-export interface Watch {
+export interface IWatch {
   id: number;
   image: string;
   name: string;

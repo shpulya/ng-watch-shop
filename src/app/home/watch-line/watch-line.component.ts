@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Watch} from '../../shared/watch';
+import {IWatch} from '../../shared/IWatch';
 import { Router } from '@angular/router';
 import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-cart.service';
 
@@ -9,7 +9,7 @@ import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-
   styleUrls: ['./watch-line.component.scss']
 })
 export class WatchLineComponent implements OnInit {
-  @Input() watch: Watch;
+  @Input() watch: IWatch;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 

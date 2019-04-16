@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform, Injectable } from '@angular/core';
-import {Watch} from '../watch';
+import {IWatch} from '../IWatch';
 
 @Pipe({
   name: 'filter'
@@ -7,22 +7,27 @@ import {Watch} from '../watch';
 
 @Injectable()
 export class FilterPipe implements PipeTransform {
-  transform(watches: Watch[], ...filterArrays): Watch[] {
+  transform(watches: IWatch[], ...filterArrays): IWatch[] {
 
     if (!watches) { return []; }
 
-    if (filterArrays[0].length > 0) {
+    const manufecturers = filterArrays[0];
+    const OSes = filterArrays[1];
+    const screenTypes = filterArrays[2];
+
+
+    if ( manufecturers && manufecturers.length > 0) {
       watches = watches.filter(s => filterArrays[0].includes(s.manufacturer));
     }
 
-    if (filterArrays[1].length > 0) {
+    if (OSes && OSes.length > 0) {
       watches = watches.filter(s => filterArrays[1].includes(s.os));
     }
 
-    if (filterArrays[2].length > 0) {
+    if (screenTypes && screenTypes.length > 0) {
       watches = watches.filter(s => filterArrays[2].includes(s.screenType));
     }
-
+    console.log(watches);
     return watches;
   }
 }

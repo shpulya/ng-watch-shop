@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Watch } from '../shared/watch';
+import { IWatch } from '../shared/IWatch';
 import { ShoppingCartService } from '../shared/services/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -35,12 +35,11 @@ export class CartComponent implements OnInit {
       acc[watch.id][1]++;
       return acc;
     }, {})).map(w => ({
-      'count': w[1],
-      'item' : this.watches.filter (watch =>
-        watch.id === w[0])[0]
-    }));
+        'count': w[1],
+        'item' : this.watches.filter (watch =>
+          watch.id === w[0])[0]
+      }));
 
-    console.log('groupWatches' + groupWatches);
     return groupWatches;
   }
 

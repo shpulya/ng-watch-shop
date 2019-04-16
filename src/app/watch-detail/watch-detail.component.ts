@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription} from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { WatchService } from '../shared/services';
-import { Watch } from '../shared/watch';
+import { IWatch } from '../shared/IWatch';
 import { mergeMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-cart.service';
@@ -18,7 +18,7 @@ import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-car
 export class WatchDetailComponent implements OnInit {
   private routeSubscription: Subscription;
   watchId: number;
-  watch: Watch;
+  watch: IWatch;
 
 
   constructor(private route: ActivatedRoute, private watchService: WatchService, private shoppingCartService: ShoppingCartService) {

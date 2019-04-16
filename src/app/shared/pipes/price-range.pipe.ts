@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Watch} from '../watch';
+import {IWatch} from '../IWatch';
 
 @Pipe({
   name: 'priceRange'
 })
 export class PriceRangePipe implements PipeTransform {
 
-  transform(watches: Watch[], range): Watch[] {
+  transform(watches: IWatch[], range): IWatch[] {
     if (!watches) { return []; }
 
     if ( !!range.from ) {

@@ -75,7 +75,7 @@
     <div class="sidenav__checkbox_group" *ngIf="isOpenManufacturerFilter">
       <div
         class="sidenav__checkbox_group__item"
-        *ngFor="let watch of watches | async | groupBy: 'manufacturer'">
+        *ngFor="let watch of watches | groupBy: 'manufacturer'">
 
         <div>
           <input
@@ -106,7 +106,7 @@
 
       <div
         class="sidenav__checkbox_group__item"
-        *ngFor="let watch of watches | async | groupBy: 'os'">
+        *ngFor="let watch of watches  | groupBy: 'os'">
 
         <div>
           <input
@@ -138,7 +138,7 @@
 
       <div
         class="sidenav__checkbox_group__item"
-        *ngFor="let watch of watches | async | groupBy: 'screenType'">
+        *ngFor="let watch of watches | groupBy: 'screenType'">
 
         <div>
           <input

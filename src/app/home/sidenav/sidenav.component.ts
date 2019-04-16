@@ -1,6 +1,6 @@
 import {Component, OnInit, Input } from '@angular/core';
 import { Observable} from 'rxjs';
-import {Watch} from '../../shared/watch';
+import {IWatch} from '../../shared/IWatch';
 import {WatchService} from '../../shared/services';
 
 @Component({
@@ -9,7 +9,7 @@ import {WatchService} from '../../shared/services';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-  @Input() watches: Observable<Watch[]>
+  @Input() watches: IWatch[];
 
   isOpenPriceFilter = false;
   isOpenScreenTypeFilter = false;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Watch } from '../../watch';
+import { IWatch } from '../../IWatch';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ export class ShoppingCartService {
 
   constructor() { }
 
-  addWatchToCart (watch: Watch) {
+  addWatchToCart (watch: IWatch) {
     this.watches.push(watch);
   }
 
-  getWatchesFromCart(): Watch[] {
+  getWatchesFromCart(): IWatch[] {
     return  this.watches;
   }
 }
