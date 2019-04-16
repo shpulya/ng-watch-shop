@@ -46,7 +46,5 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.watches = this.shoppingCartService.getWatchesFromCart();
-    console.log('init' + this.watches);
-
   }
 }

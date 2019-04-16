@@ -1,28 +1,32 @@
 <div class="cart_header">Cart</div>
-<div class="back" [routerLink]="['']">Back to catalog</div>
 
-<div *ngIf="watches && watches.length">
-  <div *ngFor="let watch of getWatches()">
-    <div class="view_line">
-      <div class="name"  [routerLink]="['/watch/'+watch?.item.id]">
-        {{watch?.item.name}}
+<div>
+  <ng-container *ngIf="watches && watches.length">
+    <div *ngFor="let watch of getWatches()">
+      <div class="view_line">
+        <div class="name"  [routerLink]="['/watch/'+watch?.item.id]">
+          {{watch?.item.name}}
+        </div>
+        <div class="price">
+          ${{watch?.item.price}}
+          <div class="price__hole"></div>
+        </div>
+        <div class="count">
+          <div class="count__descending" (click)="onReduceCount(watch?.item)">	&nbsp;-&nbsp;</div>
+          {{watch?.count}}
+          <div class="count__increase" (click)="onIncreaseCount(watch?.item)">	&nbsp;+&nbsp;</div>
+        </div>
+        <div class="total-item-price" >${{watch?.count * watch?.item.price}}</div>
       </div>
-      <div class="price">
-        ${{watch?.item.price}}
-        <div class="price__hole"></div>
-      </div>
-      <div class="count">
-        <div class="count__descending" (click)="onReduceCount(watch?.item)">	&nbsp;-&nbsp;</div>
-        {{watch?.count}}
-        <div class="count__increase" (click)="onIncreaseCount(watch?.item)">	&nbsp;+&nbsp;</div>
-      </div>
-      <div class="total-item-price" >${{watch?.count * watch?.item.price}}</div>
+      <hr/>
     </div>
-    <hr/>
-  </div>
-  <div class="footer">
+  </ng-container>
 
-    <div class="final_sum" *ngIf="getSum() !== 0">Final Sum : $ {{getSum()}} </div>
+  <div class="footer">
+    <div class="back" [routerLink]="['']">Back to catalog</div>
+    <ng-container *ngIf="watches && watches.length">
+      <div class="final_sum" *ngIf="getSum() !== 0">Final Sum : $ {{getSum()}} </div>
+    </ng-container>
   </div>
 </div>
 

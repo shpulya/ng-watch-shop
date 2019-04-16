@@ -2,7 +2,7 @@
   <div class="logo" ></div>
 
     <div class="cart" [routerLink]="['/cart/']">
-      <div class="cart__counter">{{counter ? counter : ''}}</div>
+      <div class="cart__counter">{{getCounter() ? getCounter() : ''}}</div>
     </div>
 
 </div>

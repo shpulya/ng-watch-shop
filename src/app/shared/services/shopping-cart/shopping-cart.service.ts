@@ -14,8 +14,6 @@ export class ShoppingCartService {
   }
 
   getWatchesFromCart(): Watch[] {
-    let temp = this.watches
-    console.log(this.watches);
-    return temp;
+    return  this.watches;
   }
 }
