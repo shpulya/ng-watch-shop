@@ -4,36 +4,38 @@ import { IWatch } from '../../IWatch';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import {IPriceRange} from '../../IPriceRange';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class WatchService {
-  manufacturers$ = new BehaviorSubject([]);
-  OSes$ = new BehaviorSubject([]);
-  screenTypes$ = new BehaviorSubject([]);
-  priceRange$ = new BehaviorSubject([]);
+  public manufacturers$ = new BehaviorSubject([]);
+  public OSes$ = new BehaviorSubject([]);
+  public screenTypes$ = new BehaviorSubject([]);
+  public priceRange$ = new BehaviorSubject({from: 0, to: 999999});
 
-  private watches = [];
+  private watches: Array<IWatch> = [];
 
   constructor(private http: HttpClient) { }
 
-  loadWatches(): void {
+  public loadWatches(): void {
     this.http.get<IWatch[]>('/data/watches.json').subscribe(watches => {
       this.watches = watches;
     });
   }
 
-  getWatchById(watchId): Observable<IWatch> {
-    return this.watches.find(watch => watch.id === parseInt(watchId, 10));
+  public getWatchById(watchId: string): IWatch {
+    return this.watches.find(watch =>
+      watch.id === parseInt(watchId, 10));
   }
 
-  getWatches() {
+  public getWatches(): Array<IWatch> {
     return this.watches;
   }
 
-  changeFiltersStates(manufactures, OSes, screenTypes, priceRange) {
+  public changeFiltersStates(manufactures: Array<string>, OSes: Array<string>, screenTypes: Array<string>, priceRange: IPriceRange): void {
     this.manufacturers$.next(manufactures);
     this.OSes$.next(OSes);
     this.screenTypes$.next(screenTypes);

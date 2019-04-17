@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-cart.service';
 
@@ -8,18 +8,18 @@ import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  counter: number;
+  private counter: number;
 
   constructor(private shoppingCartService: ShoppingCartService) {
 
   }
 
-  getCounter() {
+  private getCounter(): number {
     this.counter = this.shoppingCartService.getWatchesFromCart().length;
     return this.counter;
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
 
   }
 

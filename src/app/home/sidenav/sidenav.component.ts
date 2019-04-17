@@ -2,6 +2,7 @@ import {Component, OnInit, Input } from '@angular/core';
 import { Observable} from 'rxjs';
 import {IWatch} from '../../shared/IWatch';
 import {WatchService} from '../../shared/services';
+import {IPriceRange} from '../../shared/IPriceRange';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,26 +10,26 @@ import {WatchService} from '../../shared/services';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-  @Input() watches: IWatch[];
+  @Input() private watches: IWatch[];
 
-  isOpenPriceFilter = false;
-  isOpenScreenTypeFilter = false;
-  isOpenManufacturerFilter = false;
-  isOpenOSFilter = false;
-  manufacturers = [];
-  oses = [];
-  screenTypes = [];
-  priceRange = [];
+  private isOpenPriceFilter: boolean = false;
+  private isOpenScreenTypeFilter: boolean = false;
+  private isOpenManufacturerFilter: boolean = false;
+  private isOpenOSFilter: boolean = false;
+  private manufacturers: Array<string> = [];
+  private oses: Array<string> = [];
+  private screenTypes: Array<string> = [];
+  private priceRange: IPriceRange = {from: 0, to: 999999};
 
   constructor(private watchService: WatchService) {
   }
 
-  changePriceRange(key, value) {
+  private changePriceRange(key: string, value: number): void {
     this.priceRange[key] = value;
-    console.log(this.priceRange);
+    this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes, this.priceRange);
   }
 
-  onCheck (arr, value) {
+  private onCheck (arr: Array<string>, value: string): void {
     const index = arr.indexOf(value);
 
     if (index === -1) {
@@ -43,8 +44,7 @@ export class SidenavComponent implements OnInit {
     this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes, this.priceRange);
   }
 
-
-  ngOnInit() {
+  public ngOnInit(): void {
 
   }
 }

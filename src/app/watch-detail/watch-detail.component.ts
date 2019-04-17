@@ -17,22 +17,21 @@ import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-car
 })
 export class WatchDetailComponent implements OnInit {
   private routeSubscription: Subscription;
-  watchId: number;
-  watch: IWatch;
+  private watchId: string;
+  private watch: IWatch;
 
 
   constructor(private route: ActivatedRoute, private watchService: WatchService, private shoppingCartService: ShoppingCartService) {
 
     this.routeSubscription = route.params.subscribe(params => this.watchId = params['watchId']);
-    this.watchService.getWatchById(this.watchId).subscribe(watch => { this.watch = watch; });
-
   }
 
-  addWatchToCart() {
+  private addWatchToCart(): void {
     this.shoppingCartService.addWatchToCart(this.watch);
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.watch = this.watchService.getWatchById(this.watchId);
   }
 
 }

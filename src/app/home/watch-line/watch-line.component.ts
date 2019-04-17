@@ -9,14 +9,14 @@ import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-
   styleUrls: ['./watch-line.component.scss']
 })
 export class WatchLineComponent implements OnInit {
-  @Input() watch: IWatch;
+  @Input() private watch: IWatch;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
-  addWatchToCart() {
+  private addWatchToCart(): void {
     this.shoppingCartService.addWatchToCart(this.watch);
   }
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }
