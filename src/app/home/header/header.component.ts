@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-cart.service';
+import {ModalDialogService} from '../../shared/services/modal-dialoge.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,9 @@ import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-
 export class HeaderComponent implements OnInit {
   private counter: number;
 
-  constructor(private shoppingCartService: ShoppingCartService) {
+  public isOpenDialogWindow: boolean = false;
+
+  constructor(private shoppingCartService: ShoppingCartService, private modalDialogService: ModalDialogService) {
   }
 
   public ngOnInit(): void {
@@ -19,5 +22,9 @@ export class HeaderComponent implements OnInit {
   public getCounter(): number {
     this.counter = this.shoppingCartService.getWatchesFromCart().length;
     return this.counter;
+  }
+
+  public openDialogWindow(id: string): void {
+      this.modalDialogService.openDialogWindow(id);
   }
 }

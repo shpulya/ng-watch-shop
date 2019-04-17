@@ -1,3 +1,4 @@
+<div class="cart-modal">
 <div class="cart_header">Cart</div>
 
 <div>
@@ -23,12 +24,14 @@
   </ng-container>
 
   <div class="footer">
-    <div class="back" [routerLink]="['']">Back to catalog</div>
+    <div class="back" [routerLink]="['']" (click)="closeDialogWindow('cart-modal')">Back to catalog</div>
     <ng-container *ngIf="watches && watches.length">
       <div class="final_sum" *ngIf="getSum() !== 0">Final Sum : $ {{getSum()}} </div>
     </ng-container>
   </div>
 </div>
+</div>
+<div class="cart-modal-background"></div>
 
 
 
