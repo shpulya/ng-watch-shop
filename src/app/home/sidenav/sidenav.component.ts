@@ -35,8 +35,14 @@ export class SidenavComponent implements OnInit {
   }
 
   public changePriceRange(flag: string): void {
-    if (flag === 'from' && this.priceFrom > this.priceTo) { this.priceFrom = 0; }
-    if (flag === 'to' && this.priceFrom > this.priceTo) { this.priceTo = 999999; }
+    if (flag === 'from' && this.priceFrom > this.priceTo) {
+      this.priceFrom = 0;
+    }
+
+    if (flag === 'to' && this.priceFrom > this.priceTo) {
+      this.priceTo = 999999;
+    }
+
     this.watchService.changeFiltersStates(this.manufacturers, this.oses, this.screenTypes, this.priceFrom, this.priceTo);
   }
 
