@@ -4,13 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'groupBy'
 })
 export class GroupByPipe implements PipeTransform {
-  transform(collection: Array<any>, property: string): Array<any> {
-    if(!collection) {
+  public transform(collection: Array<any>, property: string): Array<any> {
+    if (!collection) {
       return null;
     }
 
-    const groupedCollection = collection.reduce((previous, current) => {
-      if(!previous[current[property]]) {
+    const groupedCollection = collection.reduce((previous: any, current: any) => {
+      if (!previous[current[property]]) {
         previous[current[property]] = [current];
       } else {
         previous[current[property]].push(current);
@@ -19,6 +19,6 @@ export class GroupByPipe implements PipeTransform {
       return previous;
     }, {});
 
-    return Object.keys(groupedCollection).map(key => ({ key, value: groupedCollection[key] }));
+    return Object.keys(groupedCollection).map((key: any) => ({ key, value: groupedCollection[key] }));
   }
 }

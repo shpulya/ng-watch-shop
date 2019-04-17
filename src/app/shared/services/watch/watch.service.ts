@@ -13,9 +13,9 @@ export class WatchService {
 
   public screenTypes$: BehaviorSubject<Array<string>>  = new BehaviorSubject([]);
 
-  public priceFrom$: BehaviorSubject<number>  = new BehaviorSubject(0);
+  public priceFrom$: BehaviorSubject<number>  = new BehaviorSubject(null);
 
-  public priceTo$: BehaviorSubject<number>  = new BehaviorSubject(999999);
+  public priceTo$: BehaviorSubject<number>  = new BehaviorSubject(null);
 
   private watches: Array<IWatch> = [];
 

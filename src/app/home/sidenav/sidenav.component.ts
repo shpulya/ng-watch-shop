@@ -35,11 +35,11 @@ export class SidenavComponent implements OnInit {
   }
 
   public changePriceRange(flag: string): void {
-    if (flag === 'from' && this.priceFrom > this.priceTo) {
+    if (flag === 'from' && this.priceTo && this.priceFrom > this.priceTo) {
       this.priceFrom = 0;
     }
 
-    if (flag === 'to' && this.priceFrom > this.priceTo) {
+    if (flag === 'to' && this.priceFrom && this.priceFrom > this.priceTo) {
       this.priceTo = 999999;
     }
 

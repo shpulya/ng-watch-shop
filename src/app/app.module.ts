@@ -19,6 +19,7 @@ import { WatchLineComponent } from './home/watch-line/watch-line.component';
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import {ScModalModule} from 'angular-5-popup';
 import {ShoppingCartService} from './shared/services/shopping-cart/shopping-cart.service';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
 
 
 
@@ -32,7 +33,8 @@ import {ShoppingCartService} from './shared/services/shopping-cart/shopping-cart
     SidenavComponent,
     WatchTileComponent,
     GroupByPipe,
-    WatchLineComponent
+    WatchLineComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

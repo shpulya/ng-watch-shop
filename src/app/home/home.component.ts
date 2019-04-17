@@ -10,19 +10,21 @@ import {IWatch} from '../shared/IWatch';
 })
 export class HomeComponent implements OnInit {
 
-  private viewIconState: string = 'grid';
+  public viewIconState: string = 'grid';
 
-  private page: number = 1;
+  public page: number = 1;
 
-  private manufacturers: Array<string> = [];
+  public manufacturers: Array<string> = [];
 
-  private oses: Array<string> = [];
+  public oses: Array<string> = [];
 
-  private screenTypes: Array<string> = [];
+  public screenTypes: Array<string> = [];
 
-  private priceFrom: number;
+  public priceFrom: number;
 
-  private priceTo: number;
+  public priceTo: number;
+
+  public orderByMode: string = 'asc';
 
   constructor(private watchService: WatchService) {
 
@@ -72,7 +74,7 @@ export class HomeComponent implements OnInit {
       watches = watches.filter((w: IWatch) => this.screenTypes.includes(w.screenType));
     }
 
-    if (this.priceFrom && this.priceTo) {
+    if (this.priceFrom || this.priceTo) {
       watches = watches.filter ((w: IWatch) => {
         const priceFrom = this.priceFrom || 0;
         const priceTo = this.priceTo || 999999;
