@@ -26,12 +26,12 @@ export class WatchDetailComponent implements OnInit {
     this.routeSubscription = route.params.subscribe(params => this.watchId = params['watchId']);
   }
 
-  private addWatchToCart(): void {
-    this.shoppingCartService.addWatchToCart(this.watch);
-  }
-
   public ngOnInit(): void {
     this.watch = this.watchService.getWatchById(this.watchId);
+  }
+  
+  public addWatchToCart(): void {
+    this.shoppingCartService.addWatchToCart(this.watch);
   }
 
 }

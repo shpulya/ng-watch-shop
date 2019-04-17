@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IWatch } from '../../IWatch';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import {IPriceRange} from '../../IPriceRange';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class WatchService {
-  public manufacturers$ = new BehaviorSubject([]);
-  public OSes$ = new BehaviorSubject([]);
-  public screenTypes$ = new BehaviorSubject([]);
-  public priceRange$ = new BehaviorSubject({from: 0, to: 999999});
+  public manufacturers$: BehaviorSubject<Array<string>> = new BehaviorSubject([]);
+
+  public OSes$: BehaviorSubject<Array<string>>  = new BehaviorSubject([]);
+
+  public screenTypes$: BehaviorSubject<Array<string>>  = new BehaviorSubject([]);
+
+  public priceFrom$: BehaviorSubject<number>  = new BehaviorSubject(0);
+
+  public priceTo$: BehaviorSubject<number>  = new BehaviorSubject(999999);
 
   private watches: Array<IWatch> = [];
 
   constructor(private http: HttpClient) { }
 
   public loadWatches(): void {
-    this.http.get<IWatch[]>('/data/watches.json').subscribe(watches => {
+    this.http.get('/data/watches.json').subscribe((watches: Array<IWatch>) => {
       this.watches = watches;
     });
   }
 
   public getWatchById(watchId: string): IWatch {
-    return this.watches.find(watch =>
+    return this.watches.find((watch: IWatch) =>
       watch.id === parseInt(watchId, 10));
   }
 
@@ -35,10 +36,18 @@ export class WatchService {
     return this.watches;
   }
 
-  public changeFiltersStates(manufactures: Array<string>, OSes: Array<string>, screenTypes: Array<string>, priceRange: IPriceRange): void {
-    this.manufacturers$.next(manufactures);
-    this.OSes$.next(OSes);
-    this.screenTypes$.next(screenTypes);
-    this.priceRange$.next(priceRange);
+  public changeFiltersStates(
+    manufactures: Array<string>,
+    OSes: Array<string>,
+    screenTypes: Array<string>,
+    priceFrom: number,
+    priceTo: number): void {
+
+      this.manufacturers$.next(manufactures);
+      this.OSes$.next(OSes);
+      this.screenTypes$.next(screenTypes);
+      this.priceFrom$.next(priceFrom);
+      this.priceTo$.next(priceTo);
+
   }
 }

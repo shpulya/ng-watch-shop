@@ -8,15 +8,15 @@ import {ShoppingCartService} from '../../shared/services/shopping-cart/shopping-
   styleUrls: ['./watch-tile.component.scss']
 })
 export class WatchTileComponent implements OnInit {
-  @Input() watch: IWatch;
+  @Input() private watch: IWatch;
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor(private shoppingCartService: ShoppingCartService) {
+  }
 
-  addWatchToCart() {
+  public ngOnInit(): void {
+  }
+
+  public addWatchToCart(): void {
     this.shoppingCartService.addWatchToCart(this.watch);
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -5,15 +5,15 @@ import { IWatch } from '../../IWatch';
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  private watches = [];
+  private watches: Array<IWatch> = [];
 
   constructor() { }
 
-  addWatchToCart (watch: IWatch) {
+  public addWatchToCart (watch: IWatch): void {
     this.watches.push(watch);
   }
 
-  getWatchesFromCart(): IWatch[] {
+  public getWatchesFromCart(): Array<IWatch> {
     return  this.watches;
   }
 }

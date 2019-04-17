@@ -40,31 +40,27 @@
       Price
     </div>
 
-    <form
-      class="sidenav__price_setter"
-      novalidate>
+    <div class="sidenav__price_setter" *ngIf="isOpenPriceFilter">
+      <input
+        type="number"
+        placeholder="From"
+        name="priceFrom"
+        [(ngModel)] = "priceFrom"
+        (ngModelChange)="changePriceRange('from')"
+        pattern="^[0-9]{5}">
+      <span>&emsp;&mdash;&emsp;</span>
 
-      <div class="form-group" *ngIf="isOpenPriceFilter">
-        <input
-          type="text"
-          placeholder="From"
-          name="priceFrom"
-          [(ngModel)] = "priceFrom"
-          (ngModelChange)="changePriceRange('from',priceFrom)"
-          pattern="^[0-9]{5}">
-        <span>&emsp;&mdash;&emsp;</span>
-
-        <input
-          type="text"
-          placeholder="To"
-          name="priceTo"
-          ngModel
-          [(ngModel)] = "priceTo"
-          (ngModelChange)="changePriceRange('to',priceTo)"
-          pattern="^[0-9]{5}">
+      <input
+        type="number"
+        placeholder="To"
+        name="priceTo"
+        ngModel
+        [(ngModel)] = "priceTo"
+        (change)="changePriceRange('to')"
+        pattern="^[0-9]{5}">
         <span> $ </span>
       </div>
-    </form>
+
     <hr *ngIf="!isOpenPriceFilter"/>
 
     <div

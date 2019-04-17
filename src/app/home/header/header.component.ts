@@ -11,16 +11,13 @@ export class HeaderComponent implements OnInit {
   private counter: number;
 
   constructor(private shoppingCartService: ShoppingCartService) {
-
-  }
-
-  private getCounter(): number {
-    this.counter = this.shoppingCartService.getWatchesFromCart().length;
-    return this.counter;
   }
 
   public ngOnInit(): void {
-
   }
 
+  public getCounter(): number {
+    this.counter = this.shoppingCartService.getWatchesFromCart().length;
+    return this.counter;
+  }
 }
