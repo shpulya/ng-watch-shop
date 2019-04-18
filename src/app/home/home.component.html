@@ -24,7 +24,7 @@
       <ng-container *ngIf="viewIconState === 'grid'">
         <app-watch-tile
           [watch] = watch
-          *ngFor="let watch of filterWatches() | orderBy: orderByMode"
+          *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
           class="home__main__container__tale">
         </app-watch-tile>
       </ng-container>
@@ -32,7 +32,7 @@
       <ng-container *ngIf="viewIconState === 'line'">
         <app-watch-line
           [watch] = watch
-          *ngFor="let watch of filterWatches() | orderBy: orderByMode"
+          *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
           class="home__main__container__line">
         </app-watch-line>
       </ng-container>
@@ -50,6 +50,4 @@
       screenReaderCurrentLabel="You're on page">
     </pagination-controls>
 </div>
-<app-cart *ngIf="isOpenDialogWindow()" id = 'cart-modal'>
-
-</app-cart>
+<app-cart *ngIf="isOpenDialogWindow()" id = 'cart-modal'></app-cart>
