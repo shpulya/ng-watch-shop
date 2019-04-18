@@ -1,25 +1,25 @@
 <div class="view_line">
-  <img
-    class="image"
-    src="../../../assets/watches/{{watch?.image}}"
-    alt="{{watch?.name}}"
-    [routerLink]="['/watch/'+watch.id]">
-  <div class="name"  [routerLink]="['/watch/'+watch.id]">
-    {{watch?.name}}
-  </div>
-  <div class="parameters">
-    {{watch?.os}}, {{watch?.ramSize}} RAM, {{watch.romSize}} ROM
-  </div>
-  <div class="description">
-    {{watch?.description}}
-  </div>
-  <div class="price">
-    ${{watch?.price}}
-    <div class="price__hole"></div>
-  </div>
-  <div class="cart" (click)="addWatchToCart()">
-    Add to cart
-  </div>
+    <img
+        class="image"
+        src="../../../assets/watches/{{watch?.image}}"
+        alt="{{watch?.name}}"
+        [routerLink]="['/watch/'+watch.id]">
+    <div class="name" [routerLink]="['/watch/'+watch.id]">
+        {{watch?.name}}
+    </div>
+    <div class="parameters">
+        {{watch?.os}}, {{watch?.ramSize}} RAM, {{watch.romSize}} ROM
+    </div>
+    <div class="description">
+        {{watch?.description}}
+    </div>
+    <div class="price">
+        ${{watch?.price}}
+        <div class="price__hole"></div>
+    </div>
+    <div class="cart" (click)="addWatchToCart()">
+        Add to cart
+    </div>
 </div>
 <hr/>
 

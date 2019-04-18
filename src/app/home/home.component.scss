@@ -1,129 +1,144 @@
 .home {
-  width: 100%;
-  display: inline-block;
-
-  &__main {
+    width: 100%;
     display: inline-block;
-    width: calc(100% - 325px);
 
-    &__header {
-      margin: 50px 30px 50px 80px;
-      display: inline-block;
-      width: 100%;
-      > span {
-        font-size: 24px;
-        color: #333333;
+    &__main {
         display: inline-block;
-        float:left;
-        clear:right;
-      }
+        width: calc(100% - 325px);
+        border-left: 1px solid #979797;
+
+        &__header {
+            margin: 50px 30px 50px 80px;
+            display: inline-block;
+            width: calc(100% - 110px);
+
+            > span {
+                font-size: 24px;
+                color: #333333;
+                display: inline-block;
+                float: left;
+                clear: right;
+            }
+        }
+
+        &__mode_view {
+            color: #666666;
+            font-size: 12px;
+            display: inline-block;
+            float: right;
+            width: 300px;
+
+            select {
+                margin: 0 15px;
+                width: 150px;
+                padding: 5px;
+                font-size: 14px;
+                border: 1px solid #979797;
+                border-radius: 5px;
+                height: 30px;
+                color: #2f2f2f;
+                appearance: none;
+                background: url("../../assets/caret-down.png") 90% / 7% no-repeat #ffffff;
+            }
+
+            &__line, &__grid {
+                width: 25px;
+                height: 25px;
+                margin: 0 5px;
+                display: inline-block;
+                line-height: 35px;
+                vertical-align: middle;
+                padding: 5px;
+                background-size: cover;
+
+                &:hover {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            &__line {
+                background-image: url("../../assets/line-view-icon.png");
+            }
+
+            &__grid {
+                background-image: url("../../assets/grid-view-icon.png");
+            }
+
+            .active {
+                border: 1px solid #2f2f2f;
+                border-radius: 3px;
+                background-origin: padding-box;
+                padding: 3px;
+                box-shadow: 2px 2px #888888
+            }
+
+        }
+
+        &__container {
+            margin: 0 30px 0 80px;
+            display: flex;
+            flex-wrap: wrap;
+
+            &__table {
+                box-sizing: border-box;
+                padding: 10px;
+                width: calc(25% - 20px);
+                display: flex;
+                margin: 10px;
+                flex-direction: column;
+            }
+
+            &__line {
+                width: 100%;
+            }
+
+            hr {
+                width: 100%;
+            }
+
+        }
     }
 
-    &__mode_view {
-      color: #666666;
-      font-size: 12px;
-      display: inline-block;
-      float: right;
-      width: 400px;
+    &__pagination {
+        text-align: center;
+        margin: 20px;
 
-      select {
-        margin: 0 15px;
-        width: 150px;
-        padding: 5px;
-        font-size: 14px;
-        border: 1px solid #979797;
-        border-radius: 5px;
-        height: 30px;
-        color: #2f2f2f;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background: url("../../assets/caret-down.png") 90% / 7% no-repeat #ffffff;
-      }
+        /deep/ .ngx-pagination .current {
+            background: #84bfbd;
+            border-radius: 3px;
+        }
 
-      &__line, &__grid {
-        width: 25px;
-        height: 25px;
-        margin: 0 5px;
-        display: inline-block;
-        line-height: 35px;
-        vertical-align: middle;
-        padding: 5px;
-        background-size: cover
-      }
+        /deep/ .ngx-pagination .pagination-next {
+            display: none;
+        }
 
-      &__line {
-        background-image: url("../../assets/line-view-icon.png");
-      }
-
-      &__grid {
-        background-image: url("../../assets/grid-view-icon.png");
-      }
-
-      .active {
-        border: 1px solid #2f2f2f;
-        border-radius: 5px;
-      }
-
+        /deep/ .ngx-pagination .pagination-previous {
+            display: none;
+        }
     }
-
-    &__container {
-      padding: 0 30px 0 80px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-
-      &__tale {
-        box-sizing: border-box;
-        padding: 10px;
-        width: calc(25% - 20px);
-        display:flex;
-        margin: 10px;
-        flex-direction: column;
-      }
-
-    }
-  }
-
-  &__pagination {
-    text-align: center;
-    margin: 20px;
-
-    /deep/ .ngx-pagination .current {
-      background:  #84bfbd;
-      border-radius: 3px;
-    }
-
-    /deep/ .ngx-pagination .pagination-next {
-      display: none;
-    }
-
-    /deep/ .ngx-pagination .pagination-previous {
-      display: none;
-    }
-  }
 }
 
 @media (max-width: 1200px) and (min-width: 1050px) {
-  .home__main__container__tale {
-    width: calc(33% - 20px);
-  }
+    .home__main__container__table {
+        width: calc(33% - 20px);
+    }
 }
 
-@media (max-width: 1050px){
-  .home__main__container__tale {
-    width: calc(50% - 20px);
-  }
+@media (max-width: 1050px) {
+    .home__main__container__table {
+        width: calc(50% - 20px);
+    }
 }
 
-@media (max-width: 850px) and (min-width: 600px){
-  .home__main__container__tale {
-    width: calc(100% - 20px);
-  }
+@media (max-width: 850px) and (min-width: 600px) {
+    .home__main__container__table {
+        width: calc(100% - 20px);
+    }
 }
 
 @media (max-width: 600px) {
-  .home__main {
-    width: 100%;
-  }
+    .home__main {
+        width: 100%;
+    }
 }

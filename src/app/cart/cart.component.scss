@@ -1,124 +1,124 @@
 .cart_header {
-  background-color: #84bfbd;
-  color: #ffffff;
-  font-size: 36px;
-  line-height: 100px;
-  vertical-align: middle;
-  padding-left: 100px;
+    background-color: #84bfbd;
+    color: #ffffff;
+    font-size: 36px;
+    line-height: 100px;
+    vertical-align: middle;
+    padding-left: 100px;
 }
 
 .view_line {
-  display: grid;
-  grid-template-areas: "name price count total_price";
-  grid-template-rows: 1fr ;
-  grid-template-columns: 1fr 150px 150px 150px;
-  grid-gap: 10px;
-  width: 60%;
-  margin: 0 auto;
-  padding: 15px 0;
+    display: grid;
+    grid-template-areas: "name price count total_price";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 150px 150px 150px;
+    grid-gap: 10px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px 0;
 }
 
 .name {
-  color: #0082b3;
-  font-size: 14px;
-  height: 40px;
-  vertical-align: middle;
-  grid-area: name;
+    color: #0082b3;
+    font-size: 14px;
+    height: 40px;
+    vertical-align: middle;
+    grid-area: name;
 }
 
 .count {
-  height: 30px;
-  width: 150px;
-  display: inline-block;
-  font-size: 18px;
-  color: #373737;
-  padding: 5px 20px;
-  position: relative;
-  background-color: #ffffff;
-  grid-area: count;
-
-  &__descending, &__increase {
+    height: 30px;
+    width: 150px;
     display: inline-block;
-    line-height: 20px;
-    background-color: #979797;
-  }
+    font-size: 18px;
+    color: #373737;
+    padding: 5px 20px;
+    position: relative;
+    background-color: #ffffff;
+    grid-area: count;
+
+    &__descending, &__increase {
+        display: inline-block;
+        line-height: 20px;
+        background-color: #979797;
+    }
 }
 
 .price {
-  height: 30px;
-  width: 90px;
-  display: inline-block;
-  font-size: 18px;
-  color: #ffffff;
-  padding: 5px 20px;
-  position: relative;
-  background-color: #84bfbd;
-  grid-area: price;
+    height: 30px;
+    width: 90px;
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 5px 20px;
+    position: relative;
+    background-color: #84bfbd;
+    grid-area: price;
 
-  &__hole {
-    content: '';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ffffff;
-  }
+    &__hole {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
 
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ffffff;
-  }
+    &:after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
 
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ffffff;
-  }
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
 }
 
 .total-item-price {
-  display: inline-block;
-  color: #373737;
-  grid-area: total_price;
-  font-size: 28px;
-  vertical-align: middle;
+    display: inline-block;
+    color: #373737;
+    grid-area: total_price;
+    font-size: 28px;
+    vertical-align: middle;
 }
 
-.footer  {
-  width: 60%;
-  margin: 0 auto;
-  display: flex;
+.footer {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
 
-  .back {
-    background-color: #ededed;
-    border-radius: 5px;
-    padding: 10px 20px;
-    color: #363636;
-    width: 150px;
-    margin-top: 50px;
-  }
+    .back {
+        background-color: #ededed;
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: #363636;
+        width: 150px;
+        margin-top: 50px;
+    }
 
-  .final_sum {
-    margin-left: auto;
-    order: 2;
-    background-color: #ededed;
-    border-radius-bottom-left: 5px;
-    padding: 30px 20px;
-  }
+    .final_sum {
+        margin-left: auto;
+        order: 2;
+        background-color: #ededed;
+        border-radius-bottom-left: 5px;
+        padding: 30px 20px;
+    }
 }
 
 

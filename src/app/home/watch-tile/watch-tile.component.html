@@ -1,23 +1,22 @@
 <img
-  class="image"
-  src="../../../assets/watches/{{watch?.image}}"
-  alt="{{watch?.name}}"
-  [routerLink]="['/watch/'+watch.id]">
+    class="image"
+    src="../../../assets/watches/{{watch?.image}}"
+    alt="{{watch?.name}}"
+    [routerLink]="['/watch/'+watch.id]">
 
 <div class="content">
-  <h3
-    class="content__name"
-    [routerLink]="['/watch/'+watch.id]">{{watch?.name}}</h3>
-  <p class="content__description">
-    {{watch?.os}}, {{watch?.ramSize}} RAM, {{watch.romSize}} ROM
-  </p>
+    <h3
+        class="content__name"
+        [routerLink]="['/watch/'+watch.id]">{{watch?.name}}</h3>
+    <p class="content__description">
+        {{watch?.os}}, {{watch?.ramSize}} RAM, {{watch.romSize}} ROM
+    </p>
 
-  <div class="price">
-    ${{watch?.price}}
-    <div class="price__hole"></div>
-  </div>
+    <div class="price">
+        ${{watch?.price}}
+        <div class="price__hole"></div>
+    </div>
 
-  <div class="cart" (click)="addWatchToCart()"></div>
-
+    <div class="cart" (click)="addWatchToCart()"></div>
 </div>
 

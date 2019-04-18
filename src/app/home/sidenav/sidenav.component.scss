@@ -1,121 +1,124 @@
 %filter_row {
 
-  width: 100%;
-  display: block;
-  line-height: 40px;
-  margin: 10px 0;
+    width: 100%;
+    display: block;
+    line-height: 40px;
+    margin: 10px 0;
 }
 
 %angle-down {
-  content: "\f107";
-  float:right;
-  font-size: 30px;
-  font-family: "FontAwesome";
+    content: "\f107";
+    float: right;
+    font-size: 30px;
+    font-family: "FontAwesome";
 }
 
 %angle-left {
-  content: "\f104";
-  float:right;
-  font-size: 30px;
-  font-family: "FontAwesome";
+    content: "\f104";
+    float: right;
+    font-size: 30px;
+    font-family: "FontAwesome";
 }
 
 .sidenav {
-  width: 325px;
-  margin: 6px 0;
-  padding: 24px 0;
-  border-right: 1px solid #979797;
-  display: inline-block;
-  vertical-align: top;
+    width: 325px;
+    margin: 6px 0;
+    padding: 24px 0;
+    display: inline-block;
+    vertical-align: top;
 
-  &__menu {
-    margin: 10px 16px 10px 30px;
-  }
-
-  &__header {
-    @extend %filter_row;
-    background-color: #84bfbd;
-    color: #ffffff;
-    font-size: 24px;
-  }
-
-  &__filter {
-    @extend %filter_row;
-    font-size: 14px;
-    color: #0082b3;
-
-    &_open {
-      &:before {
-        @extend %angle-down;
-      }
+    &__menu {
+        margin: 10px 16px 10px 30px;
     }
 
-    &_close {
-      &:before {
-        @extend %angle-left;
-      }
+    &__header {
+        @extend %filter_row;
+        background-color: #84bfbd;
+        color: #ffffff;
+        font-size: 24px;
+        padding-left: 10px;
     }
-  }
 
-  &__price_setter {
-    @extend %filter_row;
+    &__filter {
+        @extend %filter_row;
+        font-size: 14px;
+        color: #0082b3;
 
-    input {
-      width: 110px;
-      height: 30px;
-      border-radius: 5px;
-      border: 1px solid #979797;
-      padding: 8px 10px;
-      font-size: 16px;
+        &_open {
+            &:before {
+                @extend %angle-down;
+            }
+        }
+
+        &_close {
+            &:before {
+                @extend %angle-left;
+            }
+        }
     }
-  }
 
-  &__checkbox_group  {
-   &__item {
-     padding-left: 30px;
-     padding-right: 16px;
-     width: 100%;
-     display: inline-block;
+    &__price_setter {
+        @extend %filter_row;
 
-     input {
-       width: 19px;
-       border: 1px solid #979797;
-       display: inline-block;
-       line-height: 20px;
-       border-radius: 3px;
-       color: #0082b3;
-       font-size: 14px;
-       text-align: center;
-     }
+        input {
+            width: 110px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #979797;
+            padding: 8px 10px;
+            font-size: 16px;
+        }
+    }
 
-    label {
-       line-height: 20px;
-       vertical-align: middle;
-       display: inline-block;
-       font-size: 14px;
-       padding-left: 10px;
-       color: #333333;
-     }
-   }
-  }
+    &__checkbox_group {
+        &__item {
+            padding-left: 30px;
+            padding-right: 16px;
+            width: 100%;
+            display: inline-block;
+
+            input {
+                width: 19px;
+                border: 1px solid #979797;
+                display: inline-block;
+                line-height: 20px;
+                border-radius: 3px;
+                color: #0082b3;
+                font-size: 14px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            label {
+                line-height: 20px;
+                vertical-align: middle;
+                display: inline-block;
+                font-size: 14px;
+                padding-left: 10px;
+                color: #333333;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 .shaf__manufacturer__item, .shaf__os__item, .shaf__screen_type__item {
-  border: 1px solid #2f2f2f;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px 40px 10px 10px;
+    border: 1px solid #2f2f2f;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 40px 10px 10px;
 
-  .delete {
-    color: #e2380b;
-    display: inline-block;
-    float: right;
-  }
+    .delete {
+        color: #e2380b;
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 600px) {
-  .sidenav {
-    width: 100%;
-  }
+    .sidenav {
+        width: 100%;
+    }
 
 }

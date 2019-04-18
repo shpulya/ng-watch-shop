@@ -1,47 +1,49 @@
 .header {
-  background-color: #ededed;
-  border-bottom: 1px solid #979797;
-  width: 100%;
-  padding: 16px 80px 13px 80px;
-  display: inline-block;
-
-  .logo {
-    width: 162px;
-    height: 60px;
-    vertical-align: middle;
-    line-height: 90px;
+    background-color: #ededed;
+    border-bottom: 1px solid #979797;
+    width: 100%;
+    padding: 16px 80px 13px 80px;
     display: inline-block;
-    background-image: url('../../../assets/logo.png');
-    background-size: cover;
-    float: left;
-  }
 
-  .cart {
-    vertical-align: middle;
-    line-height: 90px;
-    display: inline-block;
-    min-height: 48px;
-    position: relative;
-    top: 10px;
-    width: 48px;
-    height: 48px;
-    background-image: url('../../../assets/cart.png');
-    background-size: cover;
-    float: right;
-
-    &__counter {
-      position: absolute;
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      background-color: #e2380b;
-      border: 1px solid #ffffff;
-      top: -5px;
-      right: -5px;
-      color: #ffffff;
-      font-size: 14px;
-      line-height: 18px;
-      text-align: center;
+    .logo {
+        width: 162px;
+        height: 60px;
+        vertical-align: middle;
+        line-height: 90px;
+        display: inline-block;
+        background-image: url('../../../assets/logo.png');
+        background-size: cover;
+        float: left;
+        cursor: pointer;
     }
-  }
+
+    .cart {
+        vertical-align: middle;
+        line-height: 90px;
+        display: inline-block;
+        min-height: 48px;
+        position: relative;
+        top: 10px;
+        width: 48px;
+        height: 48px;
+        background-image: url('../../../assets/cart.png');
+        background-size: cover;
+        float: right;
+        cursor: pointer;
+
+        &__counter {
+            position: absolute;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            background-color: #e2380b;
+            border: 1px solid #ffffff;
+            top: -5px;
+            right: -5px;
+            color: #ffffff;
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
 }

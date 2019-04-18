@@ -1,53 +1,56 @@
 <app-header #header></app-header>
 
 <div class="home">
-  <app-sidenav [watches]="getWatches()"></app-sidenav>
+    <app-sidenav [watches]="getWatches()"></app-sidenav>
 
-  <div class="home__main">
-    <div class="home__main__header">
-      <span>Smartwatches</span>
+    <div class="home__main">
+        <div class="home__main__header">
+            <span>Smartwatches</span>
 
-      <div class="home__main__mode_view">
-        <span>Sorting:</span>
-        <select name="sorting" [(ngModel)] = "orderByMode" >
-          <option value="asc">Lowest Price</option>
-          <option value="desk">Highest Price</option>
-        </select>
+            <div class="home__main__mode_view">
+                <span>Sorting:</span>
+                <select name="sorting" [(ngModel)]="orderByMode">
+                    <option value="asc">Lowest Price</option>
+                    <option value="desk">Highest Price</option>
+                </select>
 
-        <div class="home__main__mode_view__line {{(viewIconState === 'line')? 'active': ''}}" (click)="onToggleViewIcon('line')"></div>
-        <div class="home__main__mode_view__grid {{(viewIconState === 'grid')? 'active': ''}}" (click)="onToggleViewIcon('grid')"></div>
-      </div>
+                <div class="home__main__mode_view__line {{(viewIconState === 'line')? 'active': ''}}"
+                     (click)="onToggleViewIcon('line')"></div>
+                <div class="home__main__mode_view__grid {{(viewIconState === 'grid')? 'active': ''}}"
+                     (click)="onToggleViewIcon('grid')"></div>
+            </div>
 
+        </div>
+
+        <div class="home__main__container" *ngIf="getWatches().length">
+            <ng-container *ngIf="viewIconState === 'grid'">
+                <app-watch-tile
+                    [watch]=watch
+                    *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
+                    class="home__main__container__table">
+                </app-watch-tile>
+            </ng-container>
+
+            <ng-container *ngIf="viewIconState === 'line'">
+                <app-watch-line
+                    [watch]=watch
+                    *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
+                    class="home__main__container__line">
+                </app-watch-line>
+            </ng-container>
+
+            <hr *ngIf="viewIconState === 'grid'"/>
+        </div>
+
+        <pagination-controls class="home__pagination"
+                             (pageChange)="page = $event"
+                             autoHide="true"
+                             responsive="true"
+                             previousLabel=""
+                             nextLabel=""
+                             screenReaderPaginationLabel="Pagination"
+                             screenReaderPageLabel="page"
+                             screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
     </div>
-
-    <div class="home__main__container" *ngIf="getWatches().length">
-      <ng-container *ngIf="viewIconState === 'grid'">
-        <app-watch-tile
-          [watch] = watch
-          *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
-          class="home__main__container__tale">
-        </app-watch-tile>
-      </ng-container>
-
-      <ng-container *ngIf="viewIconState === 'line'">
-        <app-watch-line
-          [watch] = watch
-          *ngFor="let watch of filterWatches() | orderBy: orderByMode | paginate: { itemsPerPage: 8, currentPage: page }"
-          class="home__main__container__line">
-        </app-watch-line>
-      </ng-container>
-    </div>
-
-    <hr/>
-    <pagination-controls class="home__pagination"
-      (pageChange)="page = $event"
-      autoHide="true"
-      responsive="true"
-      previousLabel=""
-      nextLabel=""
-      screenReaderPaginationLabel="Pagination"
-      screenReaderPageLabel="page"
-      screenReaderCurrentLabel="You're on page">
-    </pagination-controls>
-</div>
-<app-cart *ngIf="isOpenDialogWindow()" id = 'cart-modal'></app-cart>
+    <app-cart *ngIf="isOpenDialogWindow()" id='cart-modal'></app-cart>
