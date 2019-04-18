@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas: "img name price" "img param price" "img describ cart";
     grid-template-rows: 50px 1fr 60px;
-    grid-template-columns: 110px 1fr 100px;
+    grid-template-columns: 130px 1fr 100px;
     grid-gap: 10px;
     width: 100%;
     margin: 0;
@@ -103,5 +103,18 @@
 
     &:hover:before {
         opacity: 1;
+    }
+}
+
+@media (max-width: 850px) and (min-width: 600px) {
+    .view_line {
+        grid-template-areas: "name name"
+                             "param param"
+                             "describ describ"
+                             "img price"
+                             "img cart";
+
+        grid-template-rows: 30px 30px 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
