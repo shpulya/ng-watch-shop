@@ -1,5 +1,4 @@
 <app-header></app-header>
-<a [routerLink]="['']">Back to catalog</a>
 
 <div class="view_line">
     <img
@@ -24,6 +23,8 @@
     </div>
 </div>
 <hr/>
+
+<app-cart *ngIf="isOpenDialogWindow()" id='cart-modal'></app-cart>
 
 
 

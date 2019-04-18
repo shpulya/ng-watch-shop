@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
     public orderByMode: string = 'asc';
 
-    constructor(private watchService: WatchService, private modalDialogSevice: ModalDialogService) {
+    constructor(private watchService: WatchService, private modalDialogService: ModalDialogService) {
 
     }
 
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
     }
 
     public isOpenDialogWindow(): boolean {
-        return this.modalDialogSevice.isOpenDialogWindow();
+        return this.modalDialogService.isOpenDialogWindow();
     }
 
     public ngOnInit(): void {

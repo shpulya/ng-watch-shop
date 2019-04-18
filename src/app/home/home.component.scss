@@ -11,6 +11,7 @@
             margin: 50px 30px 50px 80px;
             display: inline-block;
             width: calc(100% - 110px);
+            height: 50px;
 
             > span {
                 font-size: 24px;
@@ -18,6 +19,7 @@
                 display: inline-block;
                 float: left;
                 clear: right;
+                padding-right: 20px;
             }
         }
 
@@ -50,6 +52,7 @@
                 vertical-align: middle;
                 padding: 5px;
                 background-size: cover;
+                cursor: pointer;
 
                 &:hover {
                     width: 30px;
@@ -119,7 +122,7 @@
     }
 }
 
-@media (max-width: 1200px) and (min-width: 1050px) {
+@media (max-width: 1200px) {
     .home__main__container__table {
         width: calc(33% - 20px);
     }
@@ -129,12 +132,33 @@
     .home__main__container__table {
         width: calc(50% - 20px);
     }
+
+    .home__main__mode_view {
+        float: left;
+    }
+
 }
 
-@media (max-width: 850px) and (min-width: 600px) {
+@media (max-width: 850px) {
     .home__main__container__table {
         width: calc(100% - 20px);
     }
+
+    .home__main__mode_view {
+
+        width: 250px;
+
+        > select {
+            display: block;
+            margin: 10px 0;
+        }
+    }
+
+    .home__main__header {
+        margin: 30px;
+        height: 100px;
+    }
+
 }
 
 @media (max-width: 600px) {

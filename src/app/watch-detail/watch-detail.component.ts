@@ -6,6 +6,7 @@ import {IWatch} from '../shared/IWatch';
 import {mergeMap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {ShoppingCartService} from '../shared/services/shopping-cart/shopping-cart.service';
+import {ModalDialogService} from '../shared/services/modal-dialoge.service';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class WatchDetailComponent implements OnInit {
     private watch: IWatch;
 
 
-    constructor(private route: ActivatedRoute, private watchService: WatchService, private shoppingCartService: ShoppingCartService) {
+    constructor(
+        private route: ActivatedRoute,
+        private watchService: WatchService,
+        private shoppingCartService: ShoppingCartService,
+        private modalDialogService: ModalDialogService) {
 
         this.routeSubscription = route.params.subscribe((params: any) => this.watchId = params['watchId']);
     }
@@ -31,5 +36,10 @@ export class WatchDetailComponent implements OnInit {
     public addWatchToCart(): void {
         this.shoppingCartService.addWatchToCart(this.watch);
     }
+
+    public isOpenDialogWindow(): boolean {
+        return this.modalDialogService.isOpenDialogWindow();
+    }
+
 
 }
